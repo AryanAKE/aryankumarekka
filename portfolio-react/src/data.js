@@ -1,0 +1,156 @@
+export const projects = [
+  {
+    id: 'barrett',
+    name: 'Barrett Plastic Surgery',
+    type: 'Branding, Website',
+    image: '/assets/images/64c00723ca0fe86a512e2e40_Barrett Plastic Surgery-p-500.png'
+  },
+  {
+    id: 'mystudio',
+    name: 'MyStudio',
+    type: 'Branding, Website, Art Direction',
+    image: '/assets/images/64c007006bb62d07dc236e72_MyStudio-p-500.png'
+  },
+  {
+    id: 'instead',
+    name: 'Instead',
+    type: 'Creative direction, UI/UX',
+    image: '/assets/images/64a41e6ef1b58a94515742e2_Instead portfolio-p-500.png'
+  },
+  {
+    id: 'jsforwebflow',
+    name: 'Js for Webflow',
+    type: 'Product design',
+    image: '/assets/images/6410fe28f063d905a5a4e9e7_JS for Webflow-p-500.png'
+  },
+  {
+    id: 'clubrare',
+    name: 'ClubRare',
+    type: 'UX design, Landing page development',
+    image: '/assets/images/6410fe3071cdd4a039a96a0f_ClubRare-p-500.png'
+  },
+  {
+    id: 'kumulus',
+    name: 'Kumulus Data',
+    type: 'Website, Branding',
+    image: '/assets/images/6410fe36aebda2b70f596ddd_Kumulus-p-500.png'
+  },
+  {
+    id: 'laluz',
+    name: 'Hotel La Luz',
+    type: 'Branding, Website',
+    image: '/assets/images/6410fe3b6d947115e5162caf_La Luz-p-500.png'
+  },
+  {
+    id: 'holistik',
+    name: 'Holistik Real Estate',
+    type: 'Website, Branding',
+    image: '/assets/images/6410fe49c7833bbc70cf75f0_Holistik Real Estate-p-500.png'
+  },
+  {
+    id: 'wized',
+    name: 'Wized 2.0',
+    type: 'Wized 2.0 Design team',
+    image: '/assets/images/64110658d613380f1d250b29_Wized (1)-p-500.png'
+  },
+  {
+    id: 'attributes',
+    name: 'Attributes',
+    type: 'Product design',
+    image: '/assets/images/6410fea11714e47e50cdc18a_Finsweet-p-500.png'
+  }
+];
+
+export const freebies = [
+  {
+    id: 'cloneables',
+    number: '01',
+    emoji: '🧪',
+    title: 'CLONE THOSE AND HAVE FUN ↗',
+    subtitle: 'Cloneables',
+    link: 'https://webflow.com/matthis',
+    color: 'yellow'
+  },
+  {
+    id: 'youtube',
+    number: '02',
+    emoji: '🎬',
+    title: 'USE AI IN YOUR WEBDESIGN WORKFLOW ↗',
+    subtitle: 'YouTube serie',
+    link: 'https://www.youtube.com/@matthisgarnier',
+    color: 'red'
+  },
+  {
+    id: 'article',
+    number: '03',
+    emoji: '📖',
+    title: 'SCREEN FREE VACATIONS ↗',
+    subtitle: 'Article',
+    link: 'https://medium.com/@matthisgarnier',
+    color: 'green'
+  },
+  {
+    id: 'course',
+    number: '04',
+    emoji: '🚀',
+    title: 'BECOME A BADASS DESIGNER ↗',
+    subtitle: 'Learn',
+    link: '#',
+    color: 'pink'
+  },
+  {
+    id: 'awards',
+    number: '05',
+    emoji: '🏆',
+    title: 'AWARDS ↗',
+    subtitle: 'Awards',
+    link: 'https://www.awwwards.com/matthisgarnier/',
+    color: 'blue'
+  }
+];
+
+export const testimonials = [
+  {
+    id: 'joe',
+    quote: '"Matthis is a top-tier designer and developer. Working with him on Finsweet projects has been an absolute pleasure. His creativity, technical skill, and ability to bring ideas to life are unmatched."',
+    name: 'Joe Krug',
+    company: 'Finsweet',
+    avatar: '/assets/images/6392a9798df82bc6f6d51772_T1V13UTS5-U1V13UTUZ-ce542dbea3ff-512.jpeg'
+  },
+  {
+    id: 'vanessa',
+    quote: '"I had the pleasure of working with Matthis on a complex branding and web design project. His attention to detail, creativity, and professionalism make him a standout designer."',
+    name: 'Vanessa Gallerne',
+    company: 'CCPAGROUP',
+    avatar: '/assets/images/6392a97b73801c4684b93c89_T1V13UTS5-UJQR8K13P-2ceccd310bb3-512.jpeg'
+  },
+  {
+    id: 'eve',
+    quote: '"Matthis is incredibly talented—his portfolio designs are breathtaking. His ability to combine aesthetics with functionality is remarkable."',
+    name: 'Eve Kayser',
+    company: 'Finsweet',
+    avatar: '/assets/images/6392a97c3a9a68fd4b55811b_T1V13UTS5-U013QRU04MC-e1a9d56eeb87-512.jpeg'
+  },
+  {
+    id: 'jonas',
+    quote: '"Working with Matthis was an excellent experience. His designs are innovative and his workflow is seamless. He truly understands how to create digital experiences that resonate."',
+    name: 'Jonas Beisswenger',
+    company: 'Langdock.com',
+    avatar: '/assets/images/6392a97dd6b1a3b8abebef43_T1V13UTS5-U02T549NW3A-f433dd6e9db3-512.jpeg'
+  },
+  {
+    id: 'victoria',
+    quote: '"Matthis brought incredible energy and talent to our design team at Finsweet. His eye for detail and passion for craft elevated every project he touched."',
+    name: 'Victoria Perez',
+    company: 'Finsweet',
+    avatar: '/assets/images/6397ca5b825007b082378e1d_T1V13UTS5-U02FRHFQBC6-002912006ca8-512.jpeg'
+  },
+  {
+    id: 'joseph',
+    quote: '"Put it before them briefly so they will read it, clearly so they will appreciate it, picturesquely so they will remember it and, above all, accurately so they will be guided by its light."',
+    name: 'Joseph Pulitzer',
+    company: 'Journalist & Publisher',
+    avatar: null,
+    emoji: '📰'
+  }
+];

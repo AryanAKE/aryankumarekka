@@ -1,0 +1,38 @@
+/* Reset default Vite styles */
+:root {
+  font-family: 'Space Mono', monospace;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: #f0f0e8;
+  background-color: #050505;
+
+  --bg: #050505;
+  --fg: #f0f0e8;
+  --accent: #ccff00;
+  --border: rgba(240,240,232,0.15);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--bg);
+  color: var(--fg);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

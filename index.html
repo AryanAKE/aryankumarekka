@@ -1,0 +1,1597 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Portfolio I Matthis Garnier</title>
+  <meta name="description" content="Matthis (he/him) is a nomad product designer with a passion for art and technology. He uses Webflow and other low-code tools to create stunning, one-of-a-kind pieces that come to life on the internet."/>
+  <meta property="og:title" content="Portfolio I Matthis Garnier"/>
+  <meta property="og:description" content="Matthis (he/him) is a nomad product designer with a passion for art and technology."/>
+  <meta property="og:type" content="website"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#050505"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    /* ====================================
+       RESET & BASE
+    ==================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050505;
+      --fg: #f0f0e8;
+      --accent: #ccff00;
+      --grey: #888;
+      --border: rgba(240,240,232,0.15);
+      --card-radius: 12px;
+      font-size: 16px;
+    }
+
+    html { height: 100%; scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      font-family: 'Space Mono', monospace;
+      font-size: 14px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { color: #000; background: var(--accent); }
+    ::-moz-selection { color: #000; background: var(--accent); }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    ul { list-style: none; padding: 0; }
+
+    /* ====================================
+       SCROLLBAR
+    ==================================== */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* ====================================
+       PRELOADER
+    ==================================== */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      cursor: wait;
+    }
+    #preloader .loader-marquee-wrapper {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      transform: scale(6);
+      filter: blur(0);
+      overflow: hidden;
+    }
+    #preloader .loader-overlay {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .loading-circle {
+      width: 48px; height: 48px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    #preloader .load-text {
+      font-size: 1rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    /* ====================================
+       MARQUEE ANIMATION
+    ==================================== */
+    @keyframes marqueeScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+    .marquee-track {
+      display: flex;
+      width: max-content;
+      animation: marqueeScroll 12s linear infinite;
+      white-space: nowrap;
+      user-select: none;
+    }
+    .marquee-track.fast { animation-duration: 8s; }
+    .marquee-track.slow { animation-duration: 18s; }
+    .marquee-track.reverse { animation-direction: reverse; }
+    .marquee-wrapper { overflow: hidden; display: flex; }
+    .marquee-item {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      padding-right: 24px;
+    }
+    .marquee-item img { height: 32px; width: auto; }
+    .marquee-text-item {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      padding-right: 40px;
+    }
+    .marquee-text-item.large {
+      font-size: clamp(2rem, 5vw, 4rem);
+    }
+
+    /* ====================================
+       NAV
+    ==================================== */
+    .navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    }
+    .navbar.scrolled {
+      background: rgba(5,5,5,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar-logo img { width: 36px; height: 36px; }
+    .navbar-links { display: flex; gap: 28px; }
+    .navbar-links a {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--fg);
+      transition: color 0.2s;
+    }
+    .navbar-links a:hover { color: var(--accent); }
+
+    /* ====================================
+       HERO SECTION
+    ==================================== */
+    .section-hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+
+    /* Top nav bar inside hero */
+    .top-navigation {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 10;
+      padding: 24px 40px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+    }
+    .top-nav-theme-switcher {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .theme-icon {
+      width: 36px; height: 36px;
+      background: #111;
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+    }
+    .theme-panel {
+      display: flex;
+      gap: 8px;
+      margin-left: 8px;
+    }
+    .theme-btn {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      cursor: pointer;
+      padding: 4px 10px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .theme-btn:hover { border-color: var(--fg); background: rgba(255,255,255,0.05); }
+
+    .top-nav-logo-title {
+      display: flex; flex-direction: column; align-items: center; gap: 12px;
+    }
+    .top-nav-logo-title img { width: 36px; }
+    .hero-headline {
+      font-size: clamp(0.7rem, 1.1vw, 1rem);
+      text-align: center;
+      letter-spacing: 0.06em;
+      max-width: 260px;
+      text-transform: uppercase;
+    }
+
+    .top-nav-right {
+      display: flex; flex-direction: column; align-items: flex-end; gap: 8px;
+    }
+    .link-tree-btn {
+      display: flex; align-items: center; gap: 8px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: border-color 0.2s, background 0.2s;
+      cursor: pointer;
+    }
+    .link-tree-btn:hover { border-color: var(--fg); background: rgba(255,255,255,0.05); }
+    .link-tree-btn svg { width: 14px; height: 14px; }
+    .social-links-panel {
+      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .social-link-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 10px 16px;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.2s;
+      cursor: pointer;
+    }
+    .social-link-item:last-child { border-bottom: none; }
+    .social-link-item:hover { background: rgba(255,255,255,0.07); }
+    .social-link-item .arrow { opacity: 0.6; }
+
+    /* Hero portrait + marquee */
+    .hero-left {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-top: 120px;
+      overflow: hidden;
+    }
+    .hero-portrait {
+      width: 100%;
+      max-height: 90vh;
+      object-fit: cover;
+      object-position: top;
+    }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 120px 40px 40px;
+    }
+
+    .hero-marquee-section {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      overflow: hidden;
+      padding: 20px 0;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+
+    .hero-bottom-bar {
+      position: absolute;
+      bottom: 80px;
+      left: 40px; right: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .scroll-indicator {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .scroll-indicator svg { animation: scrollBounce 1.5s ease-in-out infinite; }
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
+    .hero-year {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ====================================
+       SECTION: ABOUT
+    ==================================== */
+    .section-about {
+      padding: 120px 40px;
+      border-top: 1px solid var(--border);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-heading {
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      overflow: hidden;
+    }
+    .about-heading .char {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-heading.in-view .char { transform: translateY(0); }
+    .about-heading .char:nth-child(1) { transition-delay: 0s; }
+    .about-heading .char:nth-child(2) { transition-delay: 0.06s; }
+    .about-heading .char:nth-child(3) { transition-delay: 0.12s; }
+    .about-heading .char:nth-child(4) { transition-delay: 0.18s; }
+    .about-heading .char:nth-child(5) { transition-delay: 0.22s; }
+    .about-right { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s; }
+    .about-right.in-view { opacity: 1; transform: translateY(0); }
+    .about-bio {
+      font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+      line-height: 1.8;
+      color: var(--fg);
+      margin-bottom: 48px;
+    }
+    .about-bio .highlight { font-weight: 700; }
+    .about-bio .label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      border: 1px solid var(--border);
+      padding: 2px 8px;
+      border-radius: 4px;
+      vertical-align: middle;
+    }
+    .about-role-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 16px;
+    }
+    .about-current-job {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      width: fit-content;
+    }
+    .about-current-job img { width: 52px; height: auto; }
+    .about-job-title { font-weight: 700; font-size: 0.9rem; }
+    .about-job-company { color: var(--grey); font-size: 0.8rem; }
+
+    /* ====================================
+       SECTION: WORK / PROJECTS
+    ==================================== */
+    .section-work {
+      border-top: 1px solid var(--border);
+      padding: 0 40px;
+    }
+    .work-marquee-top {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .work-header {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .work-heading {
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 700;
+      line-height: 0.9;
+      letter-spacing: -0.02em;
+      overflow: hidden;
+    }
+    .work-heading .char {
+      display: inline-block;
+      transform: translateY(110%);
+      transition: transform 0.7s cubic-bezier(0.16,1,0.3,1);
+    }
+    .work-heading.in-view .char { transform: translateY(0); }
+    .work-heading .char:nth-child(1) { transition-delay: 0s; }
+    .work-heading .char:nth-child(2) { transition-delay: 0.05s; }
+    .work-heading .char:nth-child(3) { transition-delay: 0.1s; }
+    .work-heading .char:nth-child(4) { transition-delay: 0.15s; }
+    .work-heading .char:nth-child(5) { transition-delay: 0.19s; }
+    .work-heading .char:nth-child(6) { transition-delay: 0.23s; }
+    .work-heading .char:nth-child(7) { transition-delay: 0.27s; }
+    .work-heading .char:nth-child(8) { transition-delay: 0.31s; }
+
+    .work-meta {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      gap: 40px;
+      align-items: start;
+    }
+    .work-meta-col label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+    .work-meta-col li {
+      font-size: 0.75rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+      letter-spacing: 0.05em;
+    }
+    .project-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 8px;
+      margin: 2px 0;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+
+    /* Project table list */
+    .projects-list { opacity: 0; transform: translateY(30px); transition: all 0.7s ease 0.2s; }
+    .projects-list.in-view { opacity: 1; transform: translateY(0); }
+    .project-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto auto;
+      align-items: center;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .project-row:hover { background: rgba(255,255,255,0.03); }
+    .project-row:hover .project-tag {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+    .project-name-wrap {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .project-icon {
+      width: 24px; height: 24px;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .project-name {
+      font-size: clamp(1rem, 2.2vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .project-dash { font-size: 1.5rem; opacity: 0.3; }
+    .project-type {
+      font-size: clamp(0.8rem, 1.5vw, 1.2rem);
+      font-weight: 700;
+      opacity: 0.7;
+    }
+    .project-preview {
+      position: absolute;
+      right: 200px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 160px;
+      border-radius: 8px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+      z-index: 10;
+    }
+    .project-row:hover .project-preview { opacity: 1; }
+    .project-preview img { width: 100%; height: auto; }
+    .contact-tag {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 0.65rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 4px 10px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+    }
+    .contact-tag svg { width: 12px; height: 12px; }
+    .project-row:hover .contact-tag {
+      background: var(--fg);
+      color: var(--bg);
+    }
+
+    /* ====================================
+       SECTION: FREEBIES
+    ==================================== */
+    .section-freebies {
+      border-top: 1px solid var(--border);
+      padding: 0 40px;
+    }
+    .freebies-marquee {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .freebies-heading-row {
+      padding: 60px 0 40px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+    }
+    .freebies-heading {
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .freebies-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .freebie-card {
+      border-right: 1px solid var(--border);
+      padding: 40px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      transition: background 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .freebie-card:last-child { border-right: none; }
+    .freebie-card:hover { background: rgba(255,255,255,0.04); }
+    .freebie-card-number {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: var(--grey);
+    }
+    .freebie-card-emoji {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .freebie-card-title {
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+    .freebie-card-arrow {
+      font-size: 1rem;
+      margin-top: auto;
+      transition: transform 0.2s;
+    }
+    .freebie-card:hover .freebie-card-arrow { transform: translate(4px, -4px); }
+    /* Colored card variants */
+    .freebie-card.yellow { background: #e8ff5a; color: #050505; }
+    .freebie-card.yellow:hover { background: #d4eb3a; }
+    .freebie-card.red { background: #ff4d4d; color: #fff; }
+    .freebie-card.red:hover { background: #e03a3a; }
+    .freebie-card.green { background: #2dcc70; color: #050505; }
+    .freebie-card.green:hover { background: #1eb860; }
+    .freebie-card.pink { background: #ff9de2; color: #050505; }
+    .freebie-card.pink:hover { background: #f08acc; }
+    .freebie-card.blue { background: #4d7eff; color: #fff; }
+    .freebie-card.blue:hover { background: #3a6be8; }
+
+    /* ====================================
+       SECTION: TESTIMONIALS
+    ==================================== */
+    .section-testimonials {
+      border-top: 1px solid var(--border);
+      padding: 0 40px;
+    }
+    .testimonials-marquee {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-bottom: 1px solid var(--border);
+    }
+    .testimonial-card {
+      padding: 48px 36px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .testimonial-card:nth-child(3n) { border-right: none; }
+    .testimonial-card:nth-last-child(-n+3) { border-bottom: none; }
+    .testimonial-quote {
+      font-size: clamp(0.85rem, 1.1vw, 1rem);
+      line-height: 1.7;
+      flex: 1;
+    }
+    .testimonial-person {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .testimonial-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+    }
+    .testimonial-avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .testimonial-name { font-size: 0.8rem; font-weight: 700; }
+    .testimonial-company { font-size: 0.7rem; color: var(--grey); }
+
+    /* ====================================
+       FOOTER
+    ==================================== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 80px 40px 40px;
+    }
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 60px;
+      border-bottom: 1px solid var(--border);
+    }
+    .footer-location {
+      font-size: 0.75rem;
+      line-height: 1.8;
+      color: var(--grey);
+    }
+    .footer-location strong { color: var(--fg); font-size: 1rem; }
+    .footer-time {
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+    }
+    .footer-time-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+    .footer-time-value {
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-variant-numeric: tabular-nums;
+    }
+    .footer-links { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+    .footer-link {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%;
+      padding: 12px 20px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .footer-link:hover { background: rgba(255,255,255,0.07); border-color: var(--fg); }
+    .footer-bottom {
+      padding-top: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .footer-copy { font-size: 0.7rem; color: var(--grey); }
+    .footer-love {
+      font-size: 0.7rem;
+      color: var(--grey);
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    /* ====================================
+       CURSOR CUSTOM
+    ==================================== */
+    .custom-cursor {
+      width: 12px; height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      z-index: 99999;
+      transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, background 0.2s;
+      transform: translate(-50%, -50%);
+    }
+    .custom-cursor.big {
+      width: 48px; height: 48px;
+      background: rgba(204,255,0,0.15);
+      border: 1px solid var(--accent);
+    }
+
+    /* ====================================
+       RESPONSIVE
+    ==================================== */
+    @media (max-width: 991px) {
+      .section-hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .work-meta { display: none; }
+      .freebies-grid { grid-template-columns: repeat(2, 1fr); }
+      .freebies-grid .freebie-card:last-child { grid-column: span 2; border-right: none; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .testimonial-card { border-right: none; }
+      .testimonial-card:nth-last-child(-n+3) { border-bottom: 1px solid var(--border); }
+      .testimonial-card:last-child { border-bottom: none; }
+      .footer-top { grid-template-columns: 1fr; }
+      .footer-links { align-items: flex-start; }
+      .top-navigation { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 767px) {
+      .section-about, .section-work, .section-freebies, .section-testimonials, .footer { padding-left: 20px; padding-right: 20px; }
+      .about-heading, .work-heading { font-size: clamp(4rem, 18vw, 7rem); }
+      .freebies-grid { grid-template-columns: 1fr; }
+      .freebies-grid .freebie-card { border-right: none; border-bottom: 1px solid var(--border); }
+      .freebies-grid .freebie-card.yellow, .freebies-grid .freebie-card.red, .freebies-grid .freebie-card.green,
+      .freebies-grid .freebie-card.pink, .freebies-grid .freebie-card.blue { border-right: none; }
+      .project-row { grid-template-columns: 1fr auto; }
+      .project-dash, .project-type { display: none; }
+      .navbar { padding: 16px 20px; }
+    }
+
+    /* ====================================
+       MISC UTILITIES
+    ==================================== */
+    .text-grey { color: var(--grey); }
+    .uppercase { text-transform: uppercase; letter-spacing: 0.1em; }
+    .page-wrapper { overflow: hidden; }
+    .section-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 8px;
+    }
+    .border-bottom { border-bottom: 1px solid var(--border); }
+    .fw7 { font-weight: 700; }
+  </style>
+</head>
+<body>
+
+<!-- Custom cursor -->
+<div class="custom-cursor" id="cursor"></div>
+
+<!-- ==================== PRELOADER ==================== -->
+<div id="preloader">
+  <div class="loader-marquee-wrapper">
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+        <span class="marquee-text-item large">MATTHIS GARNIER</span>
+      </div>
+    </div>
+  </div>
+  <div class="loader-overlay">
+    <div class="loading-circle"></div>
+    <div class="load-text">Loading</div>
+  </div>
+</div>
+
+<!-- ==================== MAIN WRAPPER ==================== -->
+<div class="page-wrapper" id="main-wrapper" style="display:none;">
+
+  <!-- ==================== NAVBAR (sticky) ==================== -->
+  <nav class="navbar" id="navbar">
+    <a href="#" class="navbar-logo">
+      <img src="assets/images/638c61879bf1380112df5835_Group%2076.svg" alt="MG Logo" width="36" height="36"/>
+    </a>
+    <div class="navbar-links">
+      <a href="#s2">About</a>
+      <a href="#s3">Work</a>
+      <a href="#s4">Products</a>
+      <a href="mailto:matthisgarnier.contact@gmail.com">Contact</a>
+    </div>
+  </nav>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section class="section-hero" id="hero">
+
+    <!-- Top navigation overlay -->
+    <div class="top-navigation">
+      <!-- Theme switcher -->
+      <div class="top-nav-theme-switcher">
+        <div class="theme-icon">ðŸ–¼</div>
+        <span>/CHOOSE YOUR THEME</span>
+        <div class="theme-panel">
+          <div class="theme-btn" onclick="setTheme('jungle')">
+            <div class="theme-icon" style="width:24px;height:24px;font-size:0.9rem;">ðŸŒ´</div>
+            <span>/jungle-theme</span>
+          </div>
+          <div class="theme-btn" onclick="setTheme('moon')">
+            <div class="theme-icon" style="width:24px;height:24px;font-size:0.9rem;">ðŸŒ</div>
+            <span>/moon-theme</span>
+          </div>
+          <div class="theme-btn" onclick="setTheme('light')">
+            <div class="theme-icon" style="width:24px;height:24px;font-size:0.9rem;">ðŸ¤</div>
+            <span>/light-theme</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Logo + headline centered -->
+      <div class="top-nav-logo-title">
+        <img src="assets/images/638c61879bf1380112df5835_Group%2076.svg" alt="MG Logo" width="36"/>
+        <p class="hero-headline">CREATIVE nomad, designing digital products &amp; brands.</p>
+      </div>
+
+      <!-- Link tree + social -->
+      <div class="top-nav-right" id="social-toggle">
+        <a href="https://linktr.ee/matthisgarnier" target="_blank" class="link-tree-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L7 6.643S10.042 7 12 7c1.958 0 5-.357 5-.357L12 2Z"/>
+            <path d="M8.5 7L5 10.94S7.625 12 12 12s7-1.06 7-1.06L15.5 7"/>
+            <path d="M6.5 11.5L3 15.523S5.7 18 12 18s9-2.477 9-2.477L17.5 11.5M12 22v-3"/>
+          </svg>
+          <span>LINK TREE</span>
+        </a>
+        <div class="social-links-panel">
+          <a href="https://www.instagram.com/matthisgarnr" target="_blank" class="social-link-item">
+            <span>Instagram</span><span class="arrow">â†—</span>
+          </a>
+          <a href="https://webflow.com/matthis" target="_blank" class="social-link-item">
+            <span>Webflow</span><span class="arrow">â†—</span>
+          </a>
+          <a href="#" class="social-link-item">
+            <span>My course</span><span class="arrow">â†—</span>
+          </a>
+          <a href="https://twitter.com/matthisgarnr" target="_blank" class="social-link-item">
+            <span>Twitter</span><span class="arrow">â†—</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Portrait -->
+    <div class="hero-left">
+      <img
+        src="assets/images/6392099811d7727f54b99e1d_Group%2089-min.avif"
+        alt="Matthis Garnier portrait"
+        class="hero-portrait"
+        loading="eager"
+      />
+    </div>
+
+    <!-- Right empty panel (for layout balance) -->
+    <div class="hero-right"></div>
+
+    <!-- Scroll indicator -->
+    <div class="hero-bottom-bar">
+      <div class="scroll-indicator">
+        <svg width="18" height="22" viewBox="0 0 18 22" fill="none">
+          <path d="M9.28 1.95L9.3 20.43" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M1.76 14.36L9.31 20.94L16.77 14.34" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>SCROLL DOWN</span>
+      </div>
+      <div class="hero-year">Â©2024</div>
+    </div>
+
+    <!-- Marquee at the bottom of hero -->
+    <div class="hero-marquee-section">
+      <div class="marquee-wrapper">
+        <div class="marquee-track">
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+          <div class="marquee-item">
+            <img src="assets/images/6387f510965fc558b727096d_MATTHIS%20GARNIER%20(2).svg" alt="Matthis Garnier text"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT SECTION ==================== -->
+  <section class="section-about" id="s2">
+    <div class="about-grid">
+      <div>
+        <h2 class="about-heading" id="about-heading">
+          <span class="char">A</span><span class="char">b</span><span class="char">o</span><span class="char">u</span><span class="char">t</span>
+        </h2>
+      </div>
+      <div class="about-right" id="about-right">
+        <p class="about-bio">
+          <span class="highlight">Matthis</span>
+          <span class="label">(he/him)</span>
+          is a nomad product and brand designer with a passion for art and technology. He uses Webflow and other low-code tools to create stunning, one-of-a-kind pieces that come to life on the internet. Currently residing in the lush jungle of Mexico, Matthis operates globally and is ready to take on any design challenge.
+        </p>
+        <div class="about-role-label">BUILDING PRODUCTS AT THE CROSSPATHS OF AI âŽ¯ SAAS âŽ¯ WEB3.</div>
+        <div class="about-current-job">
+          <img src="assets/images/64f5e79fb44965b0c314f49a_SVZ.svg" alt="SVZ logo" width="52"/>
+          <div>
+            <div class="about-job-title">Senior Design Director</div>
+            <div class="about-job-company">SVZ</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WORK SECTION ==================== -->
+  <section class="section-work" id="s3">
+
+    <!-- SUPER BADASS Marquee -->
+    <div class="work-marquee-top">
+      <div class="marquee-wrapper">
+        <div class="marquee-track fast reverse">
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">SUPER BADASS ðŸ”¥&nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work Header -->
+    <div class="work-header">
+      <div>
+        <h2 class="work-heading" id="work-heading">
+          <span class="char">â¤µ</span><span class="char">&nbsp;</span><span class="char">P</span><span class="char">r</span><span class="char">o</span><span class="char">j</span><span class="char">e</span><span class="char">c</span><span class="char">t</span><span class="char">s</span>
+        </h2>
+      </div>
+      <div class="work-meta">
+        <div class="work-meta-col">
+          <label>TIMEFRAME</label>
+          <ul>
+            <li>YEAR 2022â€“23</li>
+          </ul>
+        </div>
+        <div class="work-meta-col">
+          <label>DISCIPLINE</label>
+          <ul>
+            <li>No code development</li>
+            <li>UI design</li>
+            <li>UX research</li>
+            <li>Art Direction</li>
+          </ul>
+        </div>
+        <div class="work-meta-col">
+          <label>TOOLS</label>
+          <ul>
+            <li>Webflow</li>
+            <li>After Effects</li>
+            <li>Figma</li>
+            <li>Wized</li>
+          </ul>
+        </div>
+        <div class="work-meta-col">
+          <label>INDUSTRY</label>
+          <ul>
+            <li class="project-tag">#CRYPTO</li>
+            <li class="project-tag">#nocode</li>
+            <li class="project-tag">#Saas</li>
+            <li class="project-tag">#webapp</li>
+            <li class="project-tag">#tech</li>
+            <li class="project-tag">#CONSUMER</li>
+            <li class="project-tag">#FINTECH</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projects List -->
+    <div class="projects-list" id="projects-list">
+
+      <!-- Barrett Plastic Surgery -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Barrett Plastic Surgery</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Branding, Website</div>
+        <div class="project-preview">
+          <img src="assets/images/64c00723ca0fe86a512e2e40_Barrett%20Plastic%20Surgery-p-500.png" alt="Barrett Plastic Surgery"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- MyStudio -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">MyStudio</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Branding, Website, Art Direction</div>
+        <div class="project-preview">
+          <img src="assets/images/64c007006bb62d07dc236e72_MyStudio-p-500.png" alt="MyStudio"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Instead -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Instead</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Creative direction, UI/UX</div>
+        <div class="project-preview">
+          <img src="assets/images/64a41e6ef1b58a94515742e2_Instead%20portfolio-p-500.png" alt="Instead"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Js for Webflow -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.802 8.56s-1.946 6.103-2.105 6.607a4778.8 4778.8 0 0 0-1.484-11.473c-3.316 0-5.089 2.36-6.026 4.851l-2.565 6.637c-.015-.476-.36-6.565-.36-6.565c-.204-3.052-3-4.91-5.262-4.91l2.739 16.6c3.474-.015 5.347-2.361 6.328-4.852c0 0 2.09-5.398 2.176-5.643c.015.23 1.5 10.494 1.5 10.494c3.488 0 5.362-2.202 6.37-4.606L24 3.708c-3.445 0-5.261 2.346-6.198 4.851Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Js for Webflow</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Product design</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fe28f063d905a5a4e9e7_JS%20for%20Webflow-p-500.png" alt="JS for Webflow"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- ClubRare -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.802 8.56s-1.946 6.103-2.105 6.607a4778.8 4778.8 0 0 0-1.484-11.473c-3.316 0-5.089 2.36-6.026 4.851l-2.565 6.637c-.015-.476-.36-6.565-.36-6.565c-.204-3.052-3-4.91-5.262-4.91l2.739 16.6c3.474-.015 5.347-2.361 6.328-4.852c0 0 2.09-5.398 2.176-5.643c.015.23 1.5 10.494 1.5 10.494c3.488 0 5.362-2.202 6.37-4.606L24 3.708c-3.445 0-5.261 2.346-6.198 4.851Z"/>
+            </svg>
+          </div>
+          <div class="project-name">ClubRare</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">UX design, Landing page development</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fe3071cdd4a039a96a0f_ClubRare-p-500.png" alt="ClubRare"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Kumulus Data -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Kumulus Data</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Website, Branding</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fe36aebda2b70f596ddd_Kumulus-p-500.png" alt="Kumulus Data"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Hotel La Luz -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Hotel La Luz</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Branding, Website</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fe3b6d947115e5162caf_La%20Luz-p-500.png" alt="Hotel La Luz"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Holistik Real Estate -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Zm6-3h3a3 3 0 0 1 0 6h-3V3Z"/>
+              <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Holistik Real Estate</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Website, Branding</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fe49c7833bbc70cf75f0_Holistik%20Real%20Estate-p-500.png" alt="Holistik Real Estate"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Wized 2.0 -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.802 8.56s-1.946 6.103-2.105 6.607a4778.8 4778.8 0 0 0-1.484-11.473c-3.316 0-5.089 2.36-6.026 4.851l-2.565 6.637c-.015-.476-.36-6.565-.36-6.565c-.204-3.052-3-4.91-5.262-4.91l2.739 16.6c3.474-.015 5.347-2.361 6.328-4.852c0 0 2.09-5.398 2.176-5.643c.015.23 1.5 10.494 1.5 10.494c3.488 0 5.362-2.202 6.37-4.606L24 3.708c-3.445 0-5.261 2.346-6.198 4.851Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Wized 2.0</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Wized 2.0 Design team</div>
+        <div class="project-preview">
+          <img src="assets/images/64110658d613380f1d250b29_Wized%20(1)-p-500.png" alt="Wized 2.0"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+      <!-- Attributes -->
+      <div class="project-row">
+        <div class="project-name-wrap">
+          <div class="project-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M17.802 8.56s-1.946 6.103-2.105 6.607a4778.8 4778.8 0 0 0-1.484-11.473c-3.316 0-5.089 2.36-6.026 4.851l-2.565 6.637c-.015-.476-.36-6.565-.36-6.565c-.204-3.052-3-4.91-5.262-4.91l2.739 16.6c3.474-.015 5.347-2.361 6.328-4.852c0 0 2.09-5.398 2.176-5.643c.015.23 1.5 10.494 1.5 10.494c3.488 0 5.362-2.202 6.37-4.606L24 3.708c-3.445 0-5.261 2.346-6.198 4.851Z"/>
+            </svg>
+          </div>
+          <div class="project-name">Attributes</div>
+        </div>
+        <div class="project-dash">â€”</div>
+        <div class="project-type">Product design</div>
+        <div class="project-preview">
+          <img src="assets/images/6410fea11714e47e50cdc18a_Finsweet-p-500.png" alt="Attributes / Finsweet"/>
+        </div>
+        <a href="mailto:matthisgarnier.contact@gmail.com?subject=I%20loved%20this%20project%2C%20Matthis%20!" class="contact-tag">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+          </svg>
+          COntact for details
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FREEBIES SECTION ==================== -->
+  <section class="section-freebies" id="s4">
+
+    <!-- Marquee -->
+    <div class="freebies-marquee">
+      <div class="marquee-wrapper">
+        <div class="marquee-track slow">
+          <span class="marquee-text-item">âœ¦ FREEBIES AND DIGITAL PRODUCTS &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">âœ¦ FREEBIES AND DIGITAL PRODUCTS &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">âœ¦ FREEBIES AND DIGITAL PRODUCTS &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">âœ¦ FREEBIES AND DIGITAL PRODUCTS &nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heading row -->
+    <div class="freebies-heading-row">
+      <h2 class="freebies-heading">Freebies &amp; Products</h2>
+      <div style="font-size:0.75rem;color:var(--grey);">CLONE THOSE AND HAVE FUN â†—</div>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="freebies-grid">
+
+      <!-- Cloneables â€” yellow -->
+      <a href="https://webflow.com/matthis" target="_blank" class="freebie-card yellow">
+        <div class="freebie-card-number">01</div>
+        <div class="freebie-card-emoji">ðŸ§¬</div>
+        <div class="freebie-card-title">CLONE THOSE AND HAVE FUN â†—</div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;">Cloneables</div>
+        <div class="freebie-card-arrow">â†—</div>
+      </a>
+
+      <!-- YouTube â€” red -->
+      <a href="https://www.youtube.com/@matthisgarnier" target="_blank" class="freebie-card red">
+        <div class="freebie-card-number">02</div>
+        <div class="freebie-card-emoji">ðŸŽ¬</div>
+        <div class="freebie-card-title">USE AI IN YOUR WEBDESIGN WORKFLOW â†—</div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;">YouTube serie</div>
+        <div class="freebie-card-arrow">â†—</div>
+      </a>
+
+      <!-- Article â€” green -->
+      <a href="https://medium.com/@matthisgarnier" target="_blank" class="freebie-card green">
+        <div class="freebie-card-number">03</div>
+        <div class="freebie-card-emoji">ðŸ“–</div>
+        <div class="freebie-card-title">SCREEN FREE VACATIONS â†—</div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;">Article</div>
+        <div class="freebie-card-arrow">â†—</div>
+      </a>
+
+      <!-- Course â€” pink -->
+      <a href="#" class="freebie-card pink">
+        <div class="freebie-card-number">04</div>
+        <div class="freebie-card-emoji">ðŸš€</div>
+        <div class="freebie-card-title">BECOME A BADASS DESIGNER â†—</div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;">Learn</div>
+        <div class="freebie-card-arrow">â†—</div>
+      </a>
+
+      <!-- Awards â€” blue -->
+      <a href="https://www.awwwards.com/matthisgarnier/" target="_blank" class="freebie-card blue">
+        <div class="freebie-card-number">05</div>
+        <div class="freebie-card-emoji">ðŸ†</div>
+        <div class="freebie-card-title">AWARDS â†—</div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.12em;">Awards</div>
+        <div class="freebie-card-arrow">â†—</div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ==================== TESTIMONIALS SECTION ==================== -->
+  <section class="section-testimonials" id="s5">
+
+    <!-- Marquee -->
+    <div class="testimonials-marquee">
+      <div class="marquee-wrapper">
+        <div class="marquee-track fast reverse">
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+          <span class="marquee-text-item">â˜… Testimonials &nbsp;&nbsp;&nbsp;</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="testimonials-grid">
+
+      <!-- Joe Krug -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Matthis is a top-tier designer and developer. Working with him on Finsweet projects has been an absolute pleasure. His creativity, technical skill, and ability to bring ideas to life are unmatched."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">
+            <img src="assets/images/6392a9798df82bc6f6d51772_T1V13UTS5-U1V13UTUZ-ce542dbea3ff-512.jpeg" alt="Joe Krug"/>
+          </div>
+          <div>
+            <div class="testimonial-name">Joe Krug</div>
+            <div class="testimonial-company">Finsweet</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vanessa Gallerne -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"I had the pleasure of working with Matthis on a complex branding and web design project. His attention to detail, creativity, and professionalism make him a standout designer."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">
+            <img src="assets/images/6392a97b73801c4684b93c89_T1V13UTS5-UJQR8K13P-2ceccd310bb3-512.jpeg" alt="Vanessa Gallerne"/>
+          </div>
+          <div>
+            <div class="testimonial-name">Vanessa Gallerne</div>
+            <div class="testimonial-company">CCPAGROUP</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Eve Kayser -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Matthis is incredibly talentedâ€”his portfolio designs are breathtaking. His ability to combine aesthetics with functionality is remarkable."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">
+            <img src="assets/images/6392a97c3a9a68fd4b55811b_T1V13UTS5-U013QRU04MC-e1a9d56eeb87-512.jpeg" alt="Eve Kayser"/>
+          </div>
+          <div>
+            <div class="testimonial-name">Eve Kayser</div>
+            <div class="testimonial-company">Finsweet</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Jonas Beisswenger -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Working with Matthis was an excellent experience. His designs are innovative and his workflow is seamless. He truly understands how to create digital experiences that resonate."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">
+            <img src="assets/images/6392a97dd6b1a3b8abebef43_T1V13UTS5-U02T549NW3A-f433dd6e9db3-512.jpeg" alt="Jonas Beisswenger"/>
+          </div>
+          <div>
+            <div class="testimonial-name">Jonas Beisswenger</div>
+            <div class="testimonial-company">Langdock.com</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Victoria Perez -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Matthis brought incredible energy and talent to our design team at Finsweet. His eye for detail and passion for craft elevated every project he touched."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar">
+            <img src="assets/images/6397ca5b825007b082378e1d_T1V13UTS5-U02FRHFQBC6-002912006ca8-512.jpeg" alt="Victoria Perez"/>
+          </div>
+          <div>
+            <div class="testimonial-name">Victoria Perez</div>
+            <div class="testimonial-company">Finsweet</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Joseph Pulitzer (quote) -->
+      <div class="testimonial-card">
+        <p class="testimonial-quote">"Put it before them briefly so they will read it, clearly so they will appreciate it, picturesquely so they will remember it and, above all, accurately so they will be guided by its light."</p>
+        <div class="testimonial-person">
+          <div class="testimonial-avatar" style="background:#1a1a1a;display:flex;align-items:center;justify-content:center;font-size:1.2rem;">ðŸ“°</div>
+          <div>
+            <div class="testimonial-name">Joseph Pulitzer</div>
+            <div class="testimonial-company">Journalist &amp; Publisher</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="footer-top">
+      <!-- Location -->
+      <div class="footer-location">
+        <strong>Made with love â¤ï¸</strong><br/>
+        in Akumal, Mexico.<br/>
+        <br/>
+        <span>Matthis Garnier Â· Nomad Designer</span>
+      </div>
+
+      <!-- Local time -->
+      <div class="footer-time">
+        <div class="footer-time-label">Local time âŽ¯ Akumal, Mexico</div>
+        <div class="footer-time-value" id="local-time">--:--</div>
+        <div style="font-size:0.65rem;color:var(--grey);">CST (UTC-6)</div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <a href="https://www.instagram.com/matthisgarnr" target="_blank" class="footer-link">
+          <span>Instagram</span><span>â†—</span>
+        </a>
+        <a href="https://webflow.com/matthis" target="_blank" class="footer-link">
+          <span>Webflow</span><span>â†—</span>
+        </a>
+        <a href="#" class="footer-link">
+          <span>My course</span><span>â†—</span>
+        </a>
+        <a href="https://twitter.com/matthisgarnr" target="_blank" class="footer-link">
+          <span>Twitter</span><span>â†—</span>
+        </a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">Â© 2024 Matthis Garnier. All right reserved.</div>
+      <div class="footer-love">
+        <span>Designed &amp; built by Matthis Garnier</span>
+        <span>ðŸŒ´</span>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-wrapper -->
+
+<script>
+  /* ====================================
+     PRELOADER
+  ==================================== */
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      const preloader = document.getElementById('preloader');
+      const main = document.getElementById('main-wrapper');
+      preloader.style.opacity = '0';
+      preloader.style.transition = 'opacity 0.6s ease';
+      setTimeout(function() {
+        preloader.style.display = 'none';
+        main.style.display = 'block';
+        initAnimations();
+      }, 600);
+    }, 1200);
+  });
+
+  /* ====================================
+     CUSTOM CURSOR
+  ==================================== */
+  const cursor = document.getElementById('cursor');
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .project-row, .freebie-card, .theme-btn').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { cursor.classList.add('big'); });
+    el.addEventListener('mouseleave', function() { cursor.classList.remove('big'); });
+  });
+
+  /* ====================================
+     NAVBAR SCROLL EFFECT
+  ==================================== */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  /* ====================================
+     LOCAL TIME (Akumal = CST = UTC-6)
+  ==================================== */
+  function updateTime() {
+    const now = new Date();
+    const cst = new Date(now.toLocaleString('en-US', { timeZone: 'America/Cancun' }));
+    const h = String(cst.getHours()).padStart(2, '0');
+    const m = String(cst.getMinutes()).padStart(2, '0');
+    const s = String(cst.getSeconds()).padStart(2, '0');
+    const el = document.getElementById('local-time');
+    if (el) el.textContent = h + ':' + m + ':' + s;
+  }
+  updateTime();
+  setInterval(updateTime, 1000);
+
+  /* ====================================
+     SCROLL ANIMATIONS
+  ==================================== */
+  function initAnimations() {
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.about-heading, .work-heading').forEach(function(el) {
+      observer.observe(el);
+    });
+    document.querySelectorAll('.about-right, .projects-list').forEach(function(el) {
+      observer.observe(el);
+    });
+  }
+
+  /* ====================================
+     THEME SWITCHER
+  ==================================== */
+  function setTheme(theme) {
+    const root = document.documentElement;
+    if (theme === 'jungle') {
+      root.style.setProperty('--bg', '#0d1f0f');
+      root.style.setProperty('--fg', '#e8f5e0');
+      root.style.setProperty('--accent', '#7fff00');
+      root.style.setProperty('--border', 'rgba(232,245,224,0.15)');
+    } else if (theme === 'moon') {
+      root.style.setProperty('--bg', '#0a0a14');
+      root.style.setProperty('--fg', '#e0e0ff');
+      root.style.setProperty('--accent', '#9d7fff');
+      root.style.setProperty('--border', 'rgba(224,224,255,0.15)');
+    } else if (theme === 'light') {
+      root.style.setProperty('--bg', '#f5f5f0');
+      root.style.setProperty('--fg', '#050505');
+      root.style.setProperty('--accent', '#ccff00');
+      root.style.setProperty('--border', 'rgba(5,5,5,0.15)');
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+.section-freebies {
+  border-top: 1px solid var(--border);
+  padding: 0 40px;
+  background: var(--bg);
+}
+
+.freebies-marquee {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.freebies-heading-row {
+  padding: 60px 0 40px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.freebies-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.freebies-subtitle {
+  font-size: 0.75rem;
+  color: var(--grey, #888);
+}
+
+.freebies-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.freebie-card {
+  border-right: 1px solid var(--border);
+  padding: 40px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  transition: background 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--fg);
+}
+
+.freebie-card:last-child {
+  border-right: none;
+}
+
+.freebie-card:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.freebie-card-number {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--grey, #888);
+}
+
+.freebie-card-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.freebie-card-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.freebie-card-subtitle {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.freebie-card-arrow {
+  font-size: 1rem;
+  margin-top: auto;
+  transition: transform 0.2s;
+}
+
+.freebie-card:hover .freebie-card-arrow {
+  transform: translate(4px, -4px);
+}
+
+/* Colored card variants */
+.freebie-card.yellow { background: #e8ff5a; color: #050505; }
+.freebie-card.yellow:hover { background: #d4eb3a; }
+
+.freebie-card.red { background: #ff4d4d; color: #fff; }
+.freebie-card.red:hover { background: #e03a3a; }
+
+.freebie-card.green { background: #2dcc70; color: #050505; }
+.freebie-card.green:hover { background: #1eb860; }
+
+.freebie-card.pink { background: #ff9de2; color: #050505; }
+.freebie-card.pink:hover { background: #f08acc; }
+
+.freebie-card.blue { background: #4d7eff; color: #fff; }
+.freebie-card.blue:hover { background: #3a6be8; }
+
+@media (max-width: 991px) {
+  .freebies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .freebies-grid .freebie-card:last-child {
+    grid-column: span 2;
+    border-right: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-freebies {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .freebies-grid {
+    grid-template-columns: 1fr;
+  }
+  .freebies-grid .freebie-card {
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  .freebies-grid .freebie-card.yellow,
+  .freebies-grid .freebie-card.red,
+  .freebies-grid .freebie-card.green,
+  .freebies-grid .freebie-card.pink,
+  .freebies-grid .freebie-card.blue {
+    border-right: none;
+  }
+}

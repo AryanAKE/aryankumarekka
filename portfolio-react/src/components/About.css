@@ -1,0 +1,119 @@
+.section-about {
+  padding: 120px 40px;
+  border-top: 1px solid var(--border);
+  background: var(--bg);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.about-heading {
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  overflow: hidden;
+  margin: 0;
+}
+
+.about-heading .char {
+  display: inline-block;
+  transform: translateY(110%);
+  transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.in-view .char {
+  transform: translateY(0);
+}
+
+.about-heading .char:nth-child(1) { transition-delay: 0s; }
+.about-heading .char:nth-child(2) { transition-delay: 0.06s; }
+.about-heading .char:nth-child(3) { transition-delay: 0.12s; }
+.about-heading .char:nth-child(4) { transition-delay: 0.18s; }
+.about-heading .char:nth-child(5) { transition-delay: 0.22s; }
+
+.about-right {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.3s;
+}
+
+.about-right.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.about-bio {
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+  line-height: 1.8;
+  color: var(--fg);
+  margin-top: 0;
+  margin-bottom: 48px;
+}
+
+.about-bio .highlight {
+  font-weight: 700;
+}
+
+.about-bio .label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 4px;
+  vertical-align: middle;
+}
+
+.about-role-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey, #888);
+  margin-bottom: 16px;
+}
+
+.about-current-job {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px 20px;
+  width: fit-content;
+}
+
+.job-logo {
+  width: 52px;
+  height: auto;
+}
+
+.about-job-title {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.about-job-company {
+  color: var(--grey, #888);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 991px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .section-about {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .about-heading {
+    font-size: clamp(4rem, 18vw, 7rem);
+  }
+}
