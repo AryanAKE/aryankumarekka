@@ -3,42 +3,42 @@ export const projects = [
     id: 'patkai',
     name: 'Patkai The Heritage',
     type: 'School Website',
-    image: '/assets/images/64c00723ca0fe86a512e2e40_Barrett Plastic Surgery-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.patkaitheheritage.com/',
     link: 'https://www.patkaitheheritage.com/'
   },
   {
     id: 'cmdr',
     name: 'CMDR Events',
     type: 'Event Management',
-    image: '/assets/images/64c007006bb62d07dc236e72_MyStudio-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://cmdrevents.in/',
     link: 'https://cmdrevents.in/'
   },
   {
     id: 'echelon',
     name: 'Echelon Media',
     type: 'Digital Agency',
-    image: '/assets/images/64a41e6ef1b58a94515742e2_Instead portfolio-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://echelonmedia-ten.vercel.app/',
     link: 'https://echelonmedia-ten.vercel.app/'
   },
   {
     id: 'japantour',
     name: 'Japan Tour',
     type: 'Tour & Travel',
-    image: '/assets/images/6410fe28f063d905a5a4e9e7_JS for Webflow-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://japantour-five.vercel.app',
     link: 'https://japantour-five.vercel.app'
   },
   {
     id: 'smriti',
     name: 'Smriti 5.0',
     type: 'Event Invitation',
-    image: '/assets/images/6410fe3071cdd4a039a96a0f_ClubRare-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://smriti-5-0.vercel.app',
     link: 'https://smriti-5-0.vercel.app'
   },
   {
     id: 'findyourspace',
     name: 'Find Your Space',
     type: 'Real Estate / Rental',
-    image: '/assets/images/6410fe36aebda2b70f596ddd_Kumulus-p-500.png',
+    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://github.com/AryanAKE/findyourspace',
     link: 'https://github.com/AryanAKE/findyourspace'
   }
 ];
