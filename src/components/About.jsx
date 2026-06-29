@@ -17,9 +17,9 @@ const About = () => {
         
         <div className="about-right animate-on-scroll" id="about-right">
           <p className="about-bio">
-            <span className="highlight">Aryan Kumar Ekka </span>
+            Hey! My name is <span className="highlight">Aryan Kumar Ekka </span>
             <span className="label">(he/him)</span>
-            {' '}is a full-stack web developer and cinematic video editor with a passion for digital storytelling and modern web technologies. He uses tools like React Native, PHP, MySQL, and professional editing software to create stunning, functional platforms and high-end visual stories that come to life on the internet. Currently residing in Assam, Aryan operates his digital agency globally and is always ready to take on the next creative design or technical challenge.
+            , and I'm a full-stack web developer and cinematic video editor with a passion for digital storytelling and modern web technologies. I use tools like React Native, PHP, MySQL, and professional editing software to create stunning, functional platforms and high-end visual stories that come to life on the internet. Currently residing in Assam, I operate my digital agency globally and I'm always ready to take on the next creative design or technical challenge.
           </p>
           
           <div className="about-role-label">
@@ -28,7 +28,7 @@ const About = () => {
           
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
             <div className="about-current-job">
-              <div className="job-logo" style={{ background: '#333', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '12px', fontWeight: 'bold' }}>EM</div>
+              <img src="/assets/images/echelon-logo.png" alt="Echelon Media Logo" className="job-logo" style={{ borderRadius: '50%', objectFit: 'contain', width: '40px', height: '40px', background: '#fff' }} />
               <div>
                 <div className="about-job-title">Founder & Lead Developer</div>
                 <div className="about-job-company">Echelon Media</div>
