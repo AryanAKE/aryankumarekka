@@ -1,16 +1,13 @@
-/* ── Spiderman Cursor ── */
+/* ── Crawling Spider Cursor ── */
 
-/* Hide default cursor on desktop, keep pointer on clickable elements for UX */
+/* Hide default cursor on desktop */
 @media (pointer: fine) {
-  body {
-    cursor: none;
-  }
-  a, button, [role="button"], input, select, textarea {
+  body, a, button, [role="button"], input, select, textarea {
     cursor: none !important;
   }
 }
 
-.spiderman-cursor {
+.spider-cursor {
   position: fixed;
   top: 0;
   left: 0;
@@ -18,54 +15,65 @@
   height: 0;
   pointer-events: none;
   z-index: 9999;
-  /* offset slightly so it hangs right below and to the right of actual click point */
-  margin-left: 15px;
-  margin-top: 15px;
+  /* Centered perfectly on the actual mouse coordinate */
+  margin-top: -16px;
+  margin-left: -16px;
 }
 
-/* The web line hanging from top of window */
-.spider-web-line {
+.spider-icon {
   position: absolute;
-  left: 0px; 
-  width: 1px;
-  background: rgba(255, 255, 255, 0.25);
-  transform-origin: top;
+  top: 0;
+  left: 0;
+  width: 32px;
+  height: 32px;
+  transform-origin: center center;
+  filter: drop-shadow(0 4px 8px rgba(255, 255, 255, 0.15));
+  /* Smooth rotation so it doesn't snap instantly, making it feel organic */
+  transition: transform 0.1s ease-out, filter 0.2s;
 }
 
-/* The spiderman head */
-.spiderman-icon {
-  position: absolute;
-  top: -18px; /* center vertically with web line */
-  left: -18px; /* center horizontally */
-  transform-origin: top center;
-  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s;
-  filter: drop-shadow(0 5px 15px rgba(226, 54, 54, 0.3));
-  /* subtle swinging animation */
-  animation: spider-swing 3.5s infinite ease-in-out;
+/* Hover glow effect */
+.is-hovering .spider-icon {
+  filter: drop-shadow(0 0 15px rgba(226, 54, 54, 0.7));
 }
 
-/* When hovering over clickable items */
-.is-hovering .spiderman-icon {
-  transform: scale(1.3) rotate(-15deg);
-  filter: drop-shadow(0 8px 25px rgba(226, 54, 54, 0.6));
-  animation: none; /* override swing when hovering */
+/* Base style for legs so they can animate properly */
+.leg {
+  transform-origin: center;
+  transform-box: fill-box;
 }
 
-@keyframes spider-swing {
-  0% { transform: rotate(-8deg); }
-  50% { transform: rotate(8deg); }
-  100% { transform: rotate(-8deg); }
+/* Rapid wiggle animations for crawling legs */
+@keyframes leg-wiggle-1 {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
 }
 
-/* Hide on mobile devices where there's no cursor */
+@keyframes leg-wiggle-2 {
+  0% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+/* Trigger wiggle only when moving */
+.is-crawling .leg-l1, .is-crawling .leg-l3 {
+  animation: leg-wiggle-1 0.15s infinite alternate;
+}
+.is-crawling .leg-l2, .is-crawling .leg-l4 {
+  animation: leg-wiggle-2 0.15s infinite alternate;
+}
+.is-crawling .leg-r1, .is-crawling .leg-r3 {
+  animation: leg-wiggle-2 0.15s infinite alternate;
+}
+.is-crawling .leg-r2, .is-crawling .leg-r4 {
+  animation: leg-wiggle-1 0.15s infinite alternate;
+}
+
+/* Disable on touch devices */
 @media (max-width: 768px) {
-  .spiderman-cursor {
+  .spider-cursor {
     display: none;
   }
-  body {
-    cursor: auto;
-  }
-  a, button, [role="button"], input, select, textarea {
-    cursor: pointer !important;
+  body, a, button, [role="button"], input, select, textarea {
+    cursor: auto !important;
   }
 }
