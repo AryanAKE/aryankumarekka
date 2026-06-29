@@ -1,0 +1,71 @@
+/* ── Spiderman Cursor ── */
+
+/* Hide default cursor on desktop, keep pointer on clickable elements for UX */
+@media (pointer: fine) {
+  body {
+    cursor: none;
+  }
+  a, button, [role="button"], input, select, textarea {
+    cursor: none !important;
+  }
+}
+
+.spiderman-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 9999;
+  /* offset slightly so it hangs right below and to the right of actual click point */
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+/* The web line hanging from top of window */
+.spider-web-line {
+  position: absolute;
+  left: 0px; 
+  width: 1px;
+  background: rgba(255, 255, 255, 0.25);
+  transform-origin: top;
+}
+
+/* The spiderman head */
+.spiderman-icon {
+  position: absolute;
+  top: -18px; /* center vertically with web line */
+  left: -18px; /* center horizontally */
+  transform-origin: top center;
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s;
+  filter: drop-shadow(0 5px 15px rgba(226, 54, 54, 0.3));
+  /* subtle swinging animation */
+  animation: spider-swing 3.5s infinite ease-in-out;
+}
+
+/* When hovering over clickable items */
+.is-hovering .spiderman-icon {
+  transform: scale(1.3) rotate(-15deg);
+  filter: drop-shadow(0 8px 25px rgba(226, 54, 54, 0.6));
+  animation: none; /* override swing when hovering */
+}
+
+@keyframes spider-swing {
+  0% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+  100% { transform: rotate(-8deg); }
+}
+
+/* Hide on mobile devices where there's no cursor */
+@media (max-width: 768px) {
+  .spiderman-cursor {
+    display: none;
+  }
+  body {
+    cursor: auto;
+  }
+  a, button, [role="button"], input, select, textarea {
+    cursor: pointer !important;
+  }
+}

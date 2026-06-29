@@ -11,7 +11,7 @@ const Hero = () => {
           <div className="color-switch_icon">
             <span className="emoji">🖼</span>
           </div>
-          <div className="nav-text">/Life id CRAZY</div>
+          <div className="nav-text">/Life is CRAZY</div>
         </div>
 
         {/* Center: Logo & Title */}
