@@ -18,7 +18,7 @@ const About = () => {
         <div className="about-right animate-on-scroll" id="about-right">
           <p className="about-bio">
             Hey! My name is <span className="highlight">Aryan Kumar Ekka </span>
-            <span className="label">(he/him)</span>
+            <span className="label"></span>
             . I'm primarily a full-stack web developer dedicated to building functional, modern digital platforms using technologies like React Native, PHP, and MySQL. Alongside my coding journey, I'm an intermediate video editor with a deep passion for videography and cinematic storytelling. Whether I'm structuring a complex database or crafting high-end visual stories, I love bringing ideas to life on the internet. Currently based in Assam, I operate my digital agency globally and I'm always ready to take on the next creative or technical challenge.
           </p>
 
@@ -30,8 +30,8 @@ const About = () => {
             <div className="about-current-job">
               <img src="/assets/images/echelon logo blue-02.png" alt="Echelon Media Logo" className="job-logo" style={{ borderRadius: '50%', objectFit: 'contain', width: '50px', height: '50px', background: '#fff' }} />
               <div>
-                <div className="about-job-title">Cheif Technology Officer & Senior Developer</div>
-                <div className="about-job-company">Echelon Media</div>
+                <div className="about-job-title">Chief Technology Officer & Senior Developer</div>
+                <div className="about-job-company"><a href="https://echelonmedia-ten.vercel.app/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Echelon Media ↗</a></div>
               </div>
             </div>
 

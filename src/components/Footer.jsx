@@ -9,7 +9,7 @@ const Footer = () => {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const cst = new Date(now.toLocaleString('en-US', { timeZone: 'America/Cancun' }));
+      const cst = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
       const h = String(cst.getHours()).padStart(2, '0');
       const m = String(cst.getMinutes()).padStart(2, '0');
       const s = String(cst.getSeconds()).padStart(2, '0');
@@ -56,38 +56,41 @@ const Footer = () => {
         <div className="footer-top">
           <div className="footer-location">
             <strong>Made with love ❤️</strong><br />
-            in Akumal, Mexico.<br />
+            in Assam, India.<br />
             <br />
-            <span>Matthis Garnier · Nomad Designer</span>
+            <span>Aryan Kumar Ekka · Full-Stack Developer</span>
           </div>
 
           <div className="footer-time">
-            <div className="footer-time-label">Local time — Akumal, Mexico</div>
+            <div className="footer-time-label">Local time — Assam, India</div>
             <div className="footer-time-value">{localTime}</div>
-            <div style={{ fontSize: '0.65rem', color: 'var(--grey)' }}>CST (UTC-6)</div>
+            <div style={{ fontSize: '0.65rem', color: 'var(--grey)' }}>IST (UTC+5:30)</div>
           </div>
 
           <div className="footer-links">
-            <a href="https://www.instagram.com/matthisgarnr" target="_blank" rel="noreferrer" className="footer-link">
+            <a href="https://www.instagram.com/aryan_a_k_e_?igsh=ajNrODdlZTI3MWtz" target="_blank" rel="noreferrer" className="footer-link">
               <span>Instagram</span><span>↗</span>
             </a>
-            <a href="https://webflow.com/matthis" target="_blank" rel="noreferrer" className="footer-link">
-              <span>Webflow</span><span>↗</span>
+            <a href="https://www.linkedin.com/in/aryan-kumar-ekka-a57b81264" target="_blank" rel="noreferrer" className="footer-link">
+              <span>LinkedIn</span><span>↗</span>
             </a>
-            <a href="#" className="footer-link">
-              <span>My course</span><span>↗</span>
+            <a href="https://github.com/AryanAKE" target="_blank" rel="noreferrer" className="footer-link">
+              <span>GitHub</span><span>↗</span>
             </a>
-            <a href="https://twitter.com/matthisgarnr" target="_blank" rel="noreferrer" className="footer-link">
-              <span>Twitter</span><span>↗</span>
+            <a href="https://x.com/aryan31276" target="_blank" rel="noreferrer" className="footer-link">
+              <span>X / Twitter</span><span>↗</span>
+            </a>
+            <a href="https://echelonmedia-ten.vercel.app/" target="_blank" rel="noreferrer" className="footer-link">
+              <span>Echelon Media ↗</span><span>↗</span>
             </a>
           </div>
         </div>
         
         <div className="footer-bottom">
-          <div className="footer-copy">© 2024 Matthis Garnier. All right reserved.</div>
+          <div className="footer-copy">© 2026 Aryan Kumar Ekka. All rights reserved.</div>
           <div className="footer-love">
-            <span>Designed &amp; built by Matthis Garnier</span>
-            <span>🌴</span>
+            <span>Designed &amp; built by Aryan Kumar Ekka</span>
+            <span>🚀</span>
           </div>
         </div>
       </footer>
