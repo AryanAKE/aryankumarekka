@@ -1,23 +1,54 @@
 .section-techstack {
   border-top: 1px solid var(--border);
   padding: 0 40px 100px;
-  background: var(--bg);
+  background-color: #030305; /* Deep space black */
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(76, 29, 149, 0.15), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(29, 78, 216, 0.15), transparent 40%);
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle background glow for the glass effect */
+/* CSS Galaxy Starfield */
 .section-techstack::before {
   content: '';
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vw;
-  background: radial-gradient(circle, rgba(255,255,255,0.02) 0%, transparent 60%);
+  top: -50%; left: -50%; right: -50%; bottom: -50%;
+  background-image: 
+    radial-gradient(2px 2px at 40px 60px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 220px 120px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2.5px 2.5px at 90px 200px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 270px 40px, #fff, rgba(0,0,0,0)),
+    radial-gradient(2px 2px at 150px 270px, #fff, rgba(0,0,0,0)),
+    radial-gradient(3px 3px at 350px 150px, #fff, rgba(0,0,0,0));
+  background-size: 400px 400px;
+  background-repeat: repeat;
+  opacity: 0.25;
   z-index: 0;
+  animation: starsFloat 120s linear infinite;
   pointer-events: none;
+}
+
+.section-techstack::after {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%; right: -50%; bottom: -50%;
+  background-image: 
+    radial-gradient(1px 1px at 80px 30px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1.5px 1.5px at 260px 90px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 120px 250px, #fff, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 310px 190px, #fff, rgba(0,0,0,0));
+  background-size: 300px 300px;
+  background-repeat: repeat;
+  opacity: 0.15;
+  z-index: 0;
+  animation: starsFloat 80s linear infinite reverse;
+  pointer-events: none;
+}
+
+@keyframes starsFloat {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .techstack-heading-row {
