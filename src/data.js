@@ -17,22 +17,15 @@ export const projects = [
     id: 'echelon',
     name: 'Echelon Media',
     type: 'Digital Agency',
-    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://echelonmedia-ten.vercel.app/',
+    image: '/assets/images/Echelon media.png',
     link: 'https://echelonmedia-ten.vercel.app/'
   },
   {
     id: 'japantour',
     name: 'Japan Tour',
     type: 'Tour & Travel',
-    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://japantour-five.vercel.app',
+    image: '/assets/images/japantour.png',
     link: 'https://japantour-five.vercel.app'
-  },
-  {
-    id: 'smriti',
-    name: 'Smriti 5.0',
-    type: 'Event Invitation',
-    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://smriti-5-0.vercel.app',
-    link: 'https://smriti-5-0.vercel.app'
   },
   {
     id: 'findyourspace',
