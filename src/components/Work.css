@@ -10,10 +10,10 @@
 }
 
 .education-heading {
-  font-size: 0.85rem;
-  letter-spacing: 0.1em;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--grey, #888);
+  color: var(--fg);
   margin-bottom: 30px;
   font-weight: 700;
 }
@@ -220,7 +220,7 @@
 }
 
 .work-heading {
-  font-size: clamp(3rem, 8vw, 6rem);
+  font-size: clamp(2rem, 5vw, 4rem);
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.02em;
