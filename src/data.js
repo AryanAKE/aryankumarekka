@@ -4,7 +4,7 @@ export const projects = [
     name: 'Patkai The Heritage',
     subtitle: 'A well designed website for the prestigious school.',
     type: 'School Website',
-    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.patkaitheheritage.com/',
+    image: '/assets/images/pthps.png',
     link: 'https://www.patkaitheheritage.com/'
   },
   {
