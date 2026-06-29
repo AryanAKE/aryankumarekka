@@ -55,12 +55,12 @@
               border-radius 0.3s ease;
 }
 
-.freebie-card.animate-on-scroll:not(.is-visible) {
+.freebie-card.animate-on-scroll:not(.in-view) {
   opacity: 0;
   transform: translateY(40px);
 }
 
-.freebie-card.is-visible {
+.freebie-card.in-view {
   opacity: 1;
   transform: translateY(0);
 }
@@ -69,7 +69,7 @@
   border-right: none;
 }
 
-.freebie-card.is-visible:hover {
+.freebie-card.in-view:hover {
   transform: translateY(-8px) scale(1.02);
   box-shadow: 0 24px 48px rgba(0,0,0,0.4);
   z-index: 10;
@@ -152,7 +152,7 @@
     border-radius: 12px;
     padding: 30px 24px;
   }
-  .freebie-card.is-visible:hover {
+  .freebie-card.in-view:hover {
     transform: translateY(-4px) scale(1.01);
   }
 }
