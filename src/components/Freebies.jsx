@@ -1,18 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Marquee from './Marquee';
 import { freebies } from '../data';
 import './Freebies.css';
 
 const Freebies = () => {
+  const sectionRef = useRef(null);
+  const [marqueeSpeed, setMarqueeSpeed] = useState(1);
+
+  useEffect(() => {
+    let lastScrollY = window.scrollY;
+    const handleScroll = () => {
+      const delta = Math.abs(window.scrollY - lastScrollY);
+      const speed = Math.min(Math.max(delta * 0.15, 1), 8);
+      setMarqueeSpeed(speed);
+      lastScrollY = window.scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="section-freebies" id="freebies">
+    <section className="section-freebies" id="freebies" ref={sectionRef}>
       <div className="freebies-marquee">
-        <Marquee text="✦ FREEBIES AND DIGITAL PRODUCTS" speed="slow" />
+        <Marquee text="✦ GIGS AND HOBBIES" speed="slow" style={{ '--marquee-speed-multiplier': marqueeSpeed }} />
       </div>
 
       <div className="freebies-heading-row">
-        <h2 className="freebies-heading">Freebies &amp; Products</h2>
-        <div className="freebies-subtitle">CLONE THOSE AND HAVE FUN ↗</div>
+        <h2 className="freebies-heading">Gigs & Hobbies</h2>
+        <div className="freebies-subtitle">WHAT I DO & WHAT I LOVE ↗</div>
       </div>
 
       <div className="freebies-grid">

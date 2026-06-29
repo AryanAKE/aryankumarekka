@@ -18,7 +18,7 @@ export const projects = [
   {
     id: 'echelon',
     name: 'Echelon Media',
-    subtitle: 'Portfolio and digital presence for a modern digital agency.',
+    subtitle: 'Portfolio and digital presence for my digital agency.',
     type: 'Digital Agency',
     image: '/assets/images/Echelon media.png',
     link: 'https://echelonmedia-ten.vercel.app/'
@@ -43,48 +43,48 @@ export const projects = [
 
 export const freebies = [
   {
-    id: 'cloneables',
+    id: 'webdev',
     number: '01',
-    emoji: '🧪',
-    title: 'CLONE THOSE AND HAVE FUN ↗',
-    subtitle: 'Cloneables',
-    link: 'https://webflow.com/matthis',
+    emoji: '💻',
+    title: 'FULL-STACK WEB DEVELOPMENT ↗',
+    subtitle: 'Gig',
+    link: 'https://echelonmedia-ten.vercel.app/',
     color: 'yellow'
   },
   {
-    id: 'youtube',
+    id: 'videoediting',
     number: '02',
     emoji: '🎬',
-    title: 'USE AI IN YOUR WEBDESIGN WORKFLOW ↗',
-    subtitle: 'YouTube serie',
-    link: 'https://www.youtube.com/@matthisgarnier',
+    title: 'CINEMATIC VIDEO EDITING ↗',
+    subtitle: 'Gig',
+    link: '#',
     color: 'red'
   },
   {
-    id: 'article',
+    id: 'videography',
     number: '03',
-    emoji: '📖',
-    title: 'SCREEN FREE VACATIONS ↗',
-    subtitle: 'Article',
-    link: 'https://medium.com/@matthisgarnier',
+    emoji: '🎥',
+    title: 'VIDEOGRAPHY & STORYTELLING ↗',
+    subtitle: 'Hobby',
+    link: '#',
     color: 'green'
   },
   {
-    id: 'course',
+    id: 'graphicdesign',
     number: '04',
-    emoji: '🚀',
-    title: 'BECOME A BADASS DESIGNER ↗',
-    subtitle: 'Learn',
+    emoji: '🎨',
+    title: 'GRAPHIC DESIGN & BRANDING ↗',
+    subtitle: 'Gig',
     link: '#',
     color: 'pink'
   },
   {
-    id: 'awards',
+    id: 'photography',
     number: '05',
-    emoji: '🏆',
-    title: 'AWARDS ↗',
-    subtitle: 'Awards',
-    link: 'https://www.awwwards.com/matthisgarnier/',
+    emoji: '📸',
+    title: 'PHOTOGRAPHY ↗',
+    subtitle: 'Hobby',
+    link: '#',
     color: 'blue'
   }
 ];
