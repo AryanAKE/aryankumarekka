@@ -157,12 +157,14 @@
   animation: marquee-scroll 20s linear infinite;
 }
 
-.marquee-content_image {
-  height: 40vh;
-  max-height: 400px;
+.marquee-text {
+  font-size: clamp(4rem, 15vw, 12rem);
+  white-space: nowrap;
+  margin: 0;
   margin-right: 2rem;
-  /* SVG is naturally black. Invert it to be white for the dark theme */
-  filter: invert(1);
+  font-weight: 800;
+  text-transform: uppercase;
+  line-height: 1;
 }
 
 @keyframes marquee-scroll {

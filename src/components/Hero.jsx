@@ -41,16 +41,14 @@ const Hero = () => {
 
       {/* Main Content Area */}
       <div className="hero_wrapper">
-        <div className="hero_portrait-container">
-          <img src="/assets/images/6392099811d7727f54b99e1d_Group 89-min.avif" alt="Portrait" className="hero-image" />
-        </div>
+
         
         <div className="marquee">
           <div className="marquee-content">
-            <img src="/assets/images/6387f510965fc558b727096d_MATTHIS GARNIER (2).svg" alt="Matthis Garnier Typography" className="marquee-content_image" />
+            <h1 className="marquee-text">ARYAN KUMAR EKKA</h1>
           </div>
           <div className="marquee-content">
-            <img src="/assets/images/6387f510965fc558b727096d_MATTHIS GARNIER (2).svg" alt="Matthis Garnier Typography" className="marquee-content_image" />
+            <h1 className="marquee-text">ARYAN KUMAR EKKA</h1>
           </div>
         </div>
 
