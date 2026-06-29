@@ -48,29 +48,18 @@
   text-decoration: none;
   color: var(--fg);
   background: transparent;
-  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
-              background 0.3s ease, 
+  transition: background 0.3s ease, 
               box-shadow 0.3s ease,
               border-radius 0.3s ease;
-}
-
-.freebie-card.animate-on-scroll:not(.in-view) {
-  opacity: 0;
-  transform: translateY(40px);
-}
-
-.freebie-card.in-view {
-  opacity: 1;
-  transform: translateY(0);
+  transform-origin: top center;
+  opacity: 0; /* Starts hidden until JS kicks in */
 }
 
 .freebie-card:last-child {
   border-right: none;
 }
 
-.freebie-card.in-view:hover {
-  transform: translateY(-8px) scale(1.02);
+.freebie-card:hover {
   box-shadow: 0 24px 48px rgba(0,0,0,0.4);
   z-index: 10;
   border-radius: 12px;
@@ -152,7 +141,7 @@
     border-radius: 12px;
     padding: 30px 24px;
   }
-  .freebie-card.in-view:hover {
-    transform: translateY(-4px) scale(1.01);
+  .freebie-card:hover {
+    box-shadow: 0 12px 24px rgba(0,0,0,0.3);
   }
 }
