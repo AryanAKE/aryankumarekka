@@ -1,6 +1,7 @@
 import React from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
+import TechStack from './components/TechStack';
 import Work from './components/Work';
 import Freebies from './components/Freebies';
 import Contact from './components/Contact';
@@ -16,6 +17,7 @@ function App() {
     <div className="app-container">
       <Hero />
       <About />
+      <TechStack />
       <Work />
       <Freebies />
       <Contact />

@@ -26,8 +26,8 @@ const Contact = () => {
 
   const socials = [
     { label: 'Instagram', url: 'https://www.instagram.com/aryan_a_k_e_?igsh=ajNrODdlZTI3MWtz' },
-    { label: 'LinkedIn',  url: 'https://www.linkedin.com/in/aryan-kumar-ekka-a57b81264' },
-    { label: 'GitHub',    url: 'https://github.com/AryanAKE' },
+    { label: 'LinkedIn', url: 'https://www.linkedin.com/in/aryan-kumar-ekka-a57b81264' },
+    { label: 'GitHub', url: 'https://github.com/AryanAKE' },
     { label: 'X / Twitter', url: 'https://x.com/aryan31276' },
     { label: 'Echelon Media', url: 'https://echelonmedia-ten.vercel.app/' },
   ];
@@ -76,7 +76,7 @@ const Contact = () => {
         {/* Sub copy */}
         <p className="contact-copy">
           Have a project in mind? A crazy idea? Or just want to say hi?<br />
-          Drop me a message — I respond within 24 hours.
+          Drop me a message.
         </p>
 
         {/* CTA */}
