@@ -11,13 +11,13 @@ const Hero = () => {
           <div className="color-switch_icon">
             <span className="emoji">🖼</span>
           </div>
-          <div className="nav-text">/Life is CRAZY</div>
+          <div className="nav-text">/Think Beyond</div>
         </div>
 
         {/* Center: Logo & Title */}
         <div className="navigation_about">
-          <a href="/" className="logo-link">
-            <img src="/assets/images/638c61879bf1380112df5835_Group 76.svg" alt="MG Logo" className="logo" />
+          <a href="/" className="logo-link" style={{ textDecoration: 'none', color: 'inherit' }}>
+            <div className="logo" style={{ fontSize: '1.4rem', fontWeight: 900, letterSpacing: '-0.05em' }}>A.K.E</div>
           </a>
           <h1 className="heading-style-header">
             CREATIVE nomad, designing digital products & brands.
