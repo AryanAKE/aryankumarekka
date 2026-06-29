@@ -10,10 +10,7 @@ export const projects = [
     id: 'cmdr',
     name: 'CMDR Events',
     type: 'Event Management',
-    image: {
-      desktop: '/assets/images/cmdr-desktop.png',
-      mobile: '/assets/images/cmdr-mobile.png'
-    },
+    image: '/assets/images/cmdrevents.png',
     link: 'https://cmdrevents.in/'
   },
   {
