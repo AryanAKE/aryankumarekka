@@ -55,7 +55,7 @@ const Footer = () => {
       <footer className="footer">
         <div className="footer-top">
           <div className="footer-location">
-            <strong>Made with love ❤️</strong><br />
+            <strong>Made with love </strong><br />
             in Assam, India.<br />
             <br />
             <span>Aryan Kumar Ekka · Full-Stack Developer</span>
@@ -85,12 +85,12 @@ const Footer = () => {
             </a>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
           <div className="footer-copy">© 2026 Aryan Kumar Ekka. All rights reserved.</div>
           <div className="footer-love">
             <span>Designed &amp; built by Aryan Kumar Ekka</span>
-            <span>🚀</span>
+
           </div>
         </div>
       </footer>

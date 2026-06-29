@@ -54,23 +54,29 @@ const Contact = () => {
 
         {/* Big animated heading */}
         <h2 className="contact-heading">
-          {'Let\'s Build'.split('').map((c, i) => (
-            <span key={i} className="contact-char" style={{ transitionDelay: `${i * 0.04}s` }}>
-              {c === ' ' ? '\u00A0' : c}
-            </span>
-          ))}
+          <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+            {'Let\'s Build'.split('').map((c, i) => (
+              <span key={i} className="contact-char" style={{ transitionDelay: `${i * 0.04}s` }}>
+                {c === ' ' ? '\u00A0' : c}
+              </span>
+            ))}
+          </span>
           <br />
-          {'Something'.split('').map((c, i) => (
-            <span key={i} className="contact-char contact-char--accent" style={{ transitionDelay: `${(i + 10) * 0.04}s` }}>
-              {c}
-            </span>
-          ))}
+          <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+            {'Something'.split('').map((c, i) => (
+              <span key={i} className="contact-char contact-char--accent" style={{ transitionDelay: `${(i + 10) * 0.04}s` }}>
+                {c}
+              </span>
+            ))}
+          </span>
           <br />
-          {'Great.'.split('').map((c, i) => (
-            <span key={i} className="contact-char" style={{ transitionDelay: `${(i + 20) * 0.04}s` }}>
-              {c}
-            </span>
-          ))}
+          <span style={{ display: 'inline-block', whiteSpace: 'nowrap' }}>
+            {'Great.'.split('').map((c, i) => (
+              <span key={i} className="contact-char" style={{ transitionDelay: `${(i + 20) * 0.04}s` }}>
+                {c}
+              </span>
+            ))}
+          </span>
         </h2>
 
         {/* Sub copy */}
