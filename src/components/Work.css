@@ -4,9 +4,68 @@
   background: var(--bg);
 }
 
-.work-marquee-top {
-  padding: 20px 0;
+.education-section {
+  padding: 40px 0;
   border-bottom: 1px solid var(--border);
+}
+
+.education-heading {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--grey, #888);
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.edu-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.edu-meta {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--grey, #888);
+  border: 1px solid var(--border);
+  padding: 2px 8px;
+  border-radius: 4px;
+  width: fit-content;
+  margin-bottom: 8px;
+}
+
+.edu-degree {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--fg);
+  line-height: 1.3;
+}
+
+.edu-school {
+  font-size: 0.9rem;
+  color: var(--fg);
+  opacity: 0.8;
+}
+
+.edu-desc {
+  font-size: 0.8rem;
+  color: var(--grey, #888);
+  margin-top: 4px;
+}
+
+@media (max-width: 991px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
 }
 
 .work-header {

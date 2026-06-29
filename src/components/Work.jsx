@@ -8,9 +8,33 @@ const Work = () => {
 
   return (
     <section className="section-work" id="work">
-      {/* Top Marquee */}
-      <div className="work-marquee-top">
-        <Marquee text="SUPER BADASS 🔥" speed="fast" reverse={true} />
+      {/* Education Section */}
+      <div className="education-section">
+        <h3 className="education-heading">EDUCATION QUALIFICATIONS</h3>
+        <div className="education-grid">
+          <div className="edu-item">
+            <div className="edu-meta">AUG 2025 - AUG 2027</div>
+            <div className="edu-degree">Master of Computer Applications (MCA)</div>
+            <div className="edu-school">Tezpur University (Present)</div>
+            <div className="edu-desc">Computer Programming, Specific Applications</div>
+          </div>
+          <div className="edu-item">
+            <div className="edu-meta">FEB 2022 - 2025</div>
+            <div className="edu-degree">Bachelor of Computer Application</div>
+            <div className="edu-school">D.H.S.K. College, Dibrugarh</div>
+            <div className="edu-desc">Computer Applications</div>
+          </div>
+          <div className="edu-item">
+            <div className="edu-meta">APR 2020 - MAR 2022</div>
+            <div className="edu-degree">HS, PCM</div>
+            <div className="edu-school">St. Xavier's H.S. School, Duliajan</div>
+          </div>
+          <div className="edu-item">
+            <div className="edu-meta">FEB 2008 - MAR 2020</div>
+            <div className="edu-degree">HSLC</div>
+            <div className="edu-school">St Mary's Higher Secondary School Naharkatia</div>
+          </div>
+        </div>
       </div>
 
       {/* Header & Meta */}
