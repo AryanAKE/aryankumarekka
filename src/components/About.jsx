@@ -19,7 +19,7 @@ const About = () => {
           <p className="about-bio">
             Hey! My name is <span className="highlight">Aryan Kumar Ekka </span>
             <span className="label">(he/him)</span>
-            , and I'm a full-stack web developer and cinematic video editor with a passion for digital storytelling and modern web technologies. I use tools like React Native, PHP, MySQL, and professional editing software to create stunning, functional platforms and high-end visual stories that come to life on the internet. Currently residing in Assam, I operate my digital agency globally and I'm always ready to take on the next creative design or technical challenge.
+            . I'm primarily a full-stack web developer dedicated to building functional, modern digital platforms using technologies like React Native, PHP, and MySQL. Alongside my coding journey, I'm an intermediate video editor with a deep passion for videography and cinematic storytelling. Whether I'm structuring a complex database or crafting high-end visual stories, I love bringing ideas to life on the internet. Currently based in Assam, I operate my digital agency globally and I'm always ready to take on the next creative or technical challenge.
           </p>
 
           <div className="about-role-label">
