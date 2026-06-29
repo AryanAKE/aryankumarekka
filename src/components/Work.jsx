@@ -142,7 +142,10 @@ const Work = () => {
                   <path d="M12 12a3 3 0 1 1 6 0a3 3 0 0 1-6 0v0Zm-6 6a3 3 0 0 1 3-3h3v3a3 3 0 0 1-6 0Zm0-6a3 3 0 0 1 3-3h3v6H9a3 3 0 0 1-3-3Z"/>
                 </svg>
               </div>
-              <div className="project-name">{project.name}</div>
+              <div className="project-title-group" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className="project-name">{project.name}</div>
+                {project.subtitle && <div className="project-subtitle" style={{ fontSize: '0.85rem', opacity: 0.6, fontWeight: 400, marginTop: '2px', letterSpacing: '0.5px' }}>{project.subtitle}</div>}
+              </div>
             </div>
             <div className="project-dash">—</div>
             <div className="project-type">{project.type}</div>

@@ -2,6 +2,7 @@ export const projects = [
   {
     id: 'patkai',
     name: 'Patkai The Heritage',
+    subtitle: 'A well designed website for the prestigious school.',
     type: 'School Website',
     image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://www.patkaitheheritage.com/',
     link: 'https://www.patkaitheheritage.com/'
@@ -9,6 +10,7 @@ export const projects = [
   {
     id: 'cmdr',
     name: 'CMDR Events',
+    subtitle: 'Built a website for Tezpur University for ICETMRSF-2026.',
     type: 'Event Management',
     image: '/assets/images/cmdrevents.png',
     link: 'https://cmdrevents.in/'
@@ -16,6 +18,7 @@ export const projects = [
   {
     id: 'echelon',
     name: 'Echelon Media',
+    subtitle: 'Portfolio and digital presence for a modern digital agency.',
     type: 'Digital Agency',
     image: '/assets/images/Echelon media.png',
     link: 'https://echelonmedia-ten.vercel.app/'
@@ -23,6 +26,7 @@ export const projects = [
   {
     id: 'japantour',
     name: 'Japan Tour',
+    subtitle: 'A beautiful travel website showcasing tours to Japan.',
     type: 'Tour & Travel',
     image: '/assets/images/japantour.png',
     link: 'https://japantour-five.vercel.app'
@@ -30,6 +34,7 @@ export const projects = [
   {
     id: 'findyourspace',
     name: 'Find Your Space',
+    subtitle: 'An online platform for students and bachelors for finding PG or rent.',
     type: 'Real Estate / Rental',
     image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://github.com/AryanAKE/findyourspace',
     link: 'https://github.com/AryanAKE/findyourspace'
