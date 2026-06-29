@@ -16,13 +16,14 @@ const Freebies = () => {
       </div>
 
       <div className="freebies-grid">
-        {freebies.map((freebie) => (
+        {freebies.map((freebie, index) => (
           <a
             key={freebie.id}
             href={freebie.link}
             target={freebie.link !== '#' ? '_blank' : '_self'}
             rel="noreferrer"
-            className={`freebie-card ${freebie.color}`}
+            className={`freebie-card animate-on-scroll ${freebie.color}`}
+            style={{ transitionDelay: `${index * 0.1}s` }}
           >
             <div className="freebie-card-number">{freebie.number}</div>
             <div className="freebie-card-emoji">{freebie.emoji}</div>

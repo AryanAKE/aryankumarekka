@@ -42,20 +42,39 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
-  transition: background 0.3s;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   text-decoration: none;
   color: var(--fg);
+  background: transparent;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), 
+              background 0.3s ease, 
+              box-shadow 0.3s ease,
+              border-radius 0.3s ease;
+}
+
+.freebie-card.animate-on-scroll:not(.is-visible) {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.freebie-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .freebie-card:last-child {
   border-right: none;
 }
 
-.freebie-card:hover {
-  background: rgba(255, 255, 255, 0.04);
+.freebie-card.is-visible:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 24px 48px rgba(0,0,0,0.4);
+  z-index: 10;
+  border-radius: 12px;
+  border: 1px solid transparent;
 }
 
 .freebie-card-number {
@@ -121,21 +140,19 @@
 
 @media (max-width: 767px) {
   .section-freebies {
-    padding-left: 20px;
-    padding-right: 20px;
+    padding: 60px 20px; /* added vertical padding */
   }
   .freebies-grid {
     grid-template-columns: 1fr;
+    gap: 16px; /* spacing between cards */
+    border-bottom: none;
   }
   .freebies-grid .freebie-card {
-    border-right: none;
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border) !important; /* give each card a full border */
+    border-radius: 12px;
+    padding: 30px 24px;
   }
-  .freebies-grid .freebie-card.yellow,
-  .freebies-grid .freebie-card.red,
-  .freebies-grid .freebie-card.green,
-  .freebies-grid .freebie-card.pink,
-  .freebies-grid .freebie-card.blue {
-    border-right: none;
+  .freebie-card.is-visible:hover {
+    transform: translateY(-4px) scale(1.01);
   }
 }

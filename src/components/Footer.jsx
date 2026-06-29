@@ -25,7 +25,7 @@ const Footer = () => {
     <>
       <section className="section-testimonials" id="testimonials">
         <div className="testimonials-marquee">
-          <Marquee text="★ Testimonials" speed="fast" reverse={true} />
+          <Marquee text="TESTIMONIALS" scrollDriven={true} reverse={true} />
         </div>
 
         <div className="testimonials-grid">

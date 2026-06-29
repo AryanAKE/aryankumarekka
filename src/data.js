@@ -111,26 +111,4 @@ export const testimonials = [
     company: 'Finsweet',
     avatar: '/assets/images/6392a97c3a9a68fd4b55811b_T1V13UTS5-U013QRU04MC-e1a9d56eeb87-512.jpeg'
   },
-  {
-    id: 'jonas',
-    quote: '"Working with Matthis was an excellent experience. His designs are innovative and his workflow is seamless. He truly understands how to create digital experiences that resonate."',
-    name: 'Jonas Beisswenger',
-    company: 'Langdock.com',
-    avatar: '/assets/images/6392a97dd6b1a3b8abebef43_T1V13UTS5-U02T549NW3A-f433dd6e9db3-512.jpeg'
-  },
-  {
-    id: 'victoria',
-    quote: '"Matthis brought incredible energy and talent to our design team at Finsweet. His eye for detail and passion for craft elevated every project he touched."',
-    name: 'Victoria Perez',
-    company: 'Finsweet',
-    avatar: '/assets/images/6397ca5b825007b082378e1d_T1V13UTS5-U02FRHFQBC6-002912006ca8-512.jpeg'
-  },
-  {
-    id: 'joseph',
-    quote: '"Put it before them briefly so they will read it, clearly so they will appreciate it, picturesquely so they will remember it and, above all, accurately so they will be guided by its light."',
-    name: 'Joseph Pulitzer',
-    company: 'Journalist & Publisher',
-    avatar: null,
-    emoji: '📰'
-  }
 ];
