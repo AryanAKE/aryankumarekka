@@ -1,29 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import Marquee from './Marquee';
 import { freebies } from '../data';
 import './Freebies.css';
 
 const Freebies = () => {
-  const sectionRef = useRef(null);
-  const [marqueeSpeed, setMarqueeSpeed] = useState(1);
-
-  useEffect(() => {
-    let lastScrollY = window.scrollY;
-    const handleScroll = () => {
-      const delta = Math.abs(window.scrollY - lastScrollY);
-      const speed = Math.min(Math.max(delta * 0.15, 1), 8);
-      setMarqueeSpeed(speed);
-      lastScrollY = window.scrollY;
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <section className="section-freebies" id="freebies" ref={sectionRef}>
+    <section className="section-freebies" id="freebies">
       <div className="freebies-marquee">
-        <Marquee text="✦ GIGS AND HOBBIES" speed="slow" style={{ '--marquee-speed-multiplier': marqueeSpeed }} />
+        <Marquee text="✦ GIGS AND HOBBIES" scrollDriven />
       </div>
 
       <div className="freebies-heading-row">

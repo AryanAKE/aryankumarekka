@@ -40,3 +40,7 @@
     transform: translateX(-50%);
   }
 }
+
+.marquee-track.scroll-driven {
+  animation: none;
+}

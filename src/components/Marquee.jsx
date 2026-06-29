@@ -1,22 +1,43 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './Marquee.css';
 
-const Marquee = ({ text, speed = 'normal', reverse = false, style = {} }) => {
-  const speedClass = speed === 'fast' ? 'fast' : speed === 'slow' ? 'slow' : '';
+const Marquee = ({ text, speed = 'normal', reverse = false, scrollDriven = false }) => {
   const reverseClass = reverse ? 'reverse' : '';
-  
-  // Duplicate text enough times to fill the screen for a smooth loop
+  const trackRef = useRef(null);
+  const [offset, setOffset] = useState(0);
+
   const items = Array(8).fill(text);
 
-  const multiplier = style['--marquee-speed-multiplier'] || 1;
-  const baseDuration = speed === 'fast' ? 8 : speed === 'slow' ? 18 : 12;
-  const dynamicDuration = Math.max(baseDuration / multiplier, 2);
+  useEffect(() => {
+    if (!scrollDriven) return;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const multiplier = speed === 'fast' ? 1.5 : speed === 'slow' ? 0.5 : 1;
+      const direction = reverse ? 1 : -1;
+      const rawOffset = scrollY * multiplier * direction;
+
+      // Wrap around so it loops seamlessly
+      if (trackRef.current) {
+        const trackWidth = trackRef.current.scrollWidth / 2;
+        const wrapped = ((rawOffset % trackWidth) + trackWidth) % trackWidth;
+        setOffset(direction * wrapped);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [scrollDriven, speed, reverse]);
+
+  const speedClass = !scrollDriven ? (speed === 'fast' ? 'fast' : speed === 'slow' ? 'slow' : '') : '';
 
   return (
     <div className="marquee-wrapper">
       <div
-        className={`marquee-track ${reverseClass}`}
-        style={{ animationDuration: `${dynamicDuration}s` }}
+        ref={trackRef}
+        className={`marquee-track ${speedClass} ${reverseClass} ${scrollDriven ? 'scroll-driven' : ''}`}
+        style={scrollDriven ? { transform: `translateX(${offset}px)` } : {}}
       >
         {items.map((item, index) => (
           <span key={index} className="marquee-text-item">
