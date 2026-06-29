@@ -1,63 +1,45 @@
 export const projects = [
   {
-    id: 'barrett',
-    name: 'Barrett Plastic Surgery',
-    type: 'Branding, Website',
-    image: '/assets/images/64c00723ca0fe86a512e2e40_Barrett Plastic Surgery-p-500.png'
+    id: 'patkai',
+    name: 'Patkai The Heritage',
+    type: 'School Website',
+    image: '/assets/images/64c00723ca0fe86a512e2e40_Barrett Plastic Surgery-p-500.png',
+    link: 'https://www.patkaitheheritage.com/'
   },
   {
-    id: 'mystudio',
-    name: 'MyStudio',
-    type: 'Branding, Website, Art Direction',
-    image: '/assets/images/64c007006bb62d07dc236e72_MyStudio-p-500.png'
+    id: 'cmdr',
+    name: 'CMDR Events',
+    type: 'Event Management',
+    image: '/assets/images/64c007006bb62d07dc236e72_MyStudio-p-500.png',
+    link: 'https://cmdrevents.in/'
   },
   {
-    id: 'instead',
-    name: 'Instead',
-    type: 'Creative direction, UI/UX',
-    image: '/assets/images/64a41e6ef1b58a94515742e2_Instead portfolio-p-500.png'
+    id: 'echelon',
+    name: 'Echelon Media',
+    type: 'Digital Agency',
+    image: '/assets/images/64a41e6ef1b58a94515742e2_Instead portfolio-p-500.png',
+    link: 'https://echelonmedia-ten.vercel.app/'
   },
   {
-    id: 'jsforwebflow',
-    name: 'Js for Webflow',
-    type: 'Product design',
-    image: '/assets/images/6410fe28f063d905a5a4e9e7_JS for Webflow-p-500.png'
+    id: 'japantour',
+    name: 'Japan Tour',
+    type: 'Tour & Travel',
+    image: '/assets/images/6410fe28f063d905a5a4e9e7_JS for Webflow-p-500.png',
+    link: 'https://japantour-five.vercel.app'
   },
   {
-    id: 'clubrare',
-    name: 'ClubRare',
-    type: 'UX design, Landing page development',
-    image: '/assets/images/6410fe3071cdd4a039a96a0f_ClubRare-p-500.png'
+    id: 'smriti',
+    name: 'Smriti 5.0',
+    type: 'Event Invitation',
+    image: '/assets/images/6410fe3071cdd4a039a96a0f_ClubRare-p-500.png',
+    link: 'https://smriti-5-0.vercel.app'
   },
   {
-    id: 'kumulus',
-    name: 'Kumulus Data',
-    type: 'Website, Branding',
-    image: '/assets/images/6410fe36aebda2b70f596ddd_Kumulus-p-500.png'
-  },
-  {
-    id: 'laluz',
-    name: 'Hotel La Luz',
-    type: 'Branding, Website',
-    image: '/assets/images/6410fe3b6d947115e5162caf_La Luz-p-500.png'
-  },
-  {
-    id: 'holistik',
-    name: 'Holistik Real Estate',
-    type: 'Website, Branding',
-    image: '/assets/images/6410fe49c7833bbc70cf75f0_Holistik Real Estate-p-500.png'
-  },
-  {
-    id: 'wized',
-    name: 'Wized 2.0',
-    type: 'Wized 2.0 Design team',
-    image: '/assets/images/64110658d613380f1d250b29_Wized (1)-p-500.png'
-  },
-  {
-    id: 'attributes',
-    name: 'Attributes',
-    type: 'Product design',
-    image: '/assets/images/6410fea11714e47e50cdc18a_Finsweet-p-500.png'
+    id: 'findyourspace',
+    name: 'Find Your Space',
+    type: 'Real Estate / Rental',
+    image: '/assets/images/6410fe36aebda2b70f596ddd_Kumulus-p-500.png',
+    link: 'https://github.com/AryanAKE/findyourspace'
   }
 ];
 

@@ -149,11 +149,13 @@ const Work = () => {
             <div className="project-preview">
               <img src={project.image} alt={project.name} />
             </div>
-            <a href="mailto:matthisgarnier.contact@gmail.com?subject=I loved this project!" className="contact-tag">
+            <a href={project.link || "#"} target="_blank" rel="noreferrer" className="contact-tag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M16 12h1.4a.6.6 0 0 1 .6.6v6.8a.6.6 0 0 1-.6.6H6.6a.6.6 0 0 1-.6-.6v-6.8a.6.6 0 0 1 .6-.6H8m8 0V8c0-1.333-.8-4-4-4S8 6.667 8 8v4m8 0H8"/>
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
               </svg>
-              Contact for details
+              Visit Project
             </a>
           </div>
         ))}
