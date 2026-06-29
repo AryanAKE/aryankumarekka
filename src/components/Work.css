@@ -220,7 +220,7 @@
 }
 
 .work-heading {
-  font-size: clamp(2rem, 5vw, 4rem);
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
   font-weight: 700;
   line-height: 0.9;
   letter-spacing: -0.02em;
