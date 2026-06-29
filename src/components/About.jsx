@@ -34,14 +34,6 @@ const About = () => {
                 <div className="about-job-company"><a href="https://echelonmedia-ten.vercel.app/" target="_blank" rel="noreferrer" style={{ color: 'inherit', textDecoration: 'underline', textUnderlineOffset: '3px' }}>Echelon Media ↗</a></div>
               </div>
             </div>
-
-            <div className="about-current-job">
-              <div className="job-logo" style={{ background: '#333', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '12px', fontWeight: 'bold' }}>SAP</div>
-              <div>
-                <div className="about-job-title">Founder & Media Producer</div>
-                <div className="about-job-company">SAP Studios</div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
