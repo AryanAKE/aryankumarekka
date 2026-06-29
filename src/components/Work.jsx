@@ -147,7 +147,14 @@ const Work = () => {
             <div className="project-dash">—</div>
             <div className="project-type">{project.type}</div>
             <div className="project-preview">
-              <img src={project.image} alt={project.name} />
+              {typeof project.image === 'string' ? (
+                <img src={project.image} alt={project.name} />
+              ) : (
+                <div className="multi-device-preview">
+                  <img src={project.image.desktop} alt={`${project.name} Desktop`} className="desktop-view" />
+                  <img src={project.image.mobile} alt={`${project.name} Mobile`} className="mobile-view" />
+                </div>
+              )}
             </div>
             <a href={project.link || "#"} target="_blank" rel="noreferrer" className="contact-tag">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

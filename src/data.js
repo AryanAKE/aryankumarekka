@@ -10,7 +10,10 @@ export const projects = [
     id: 'cmdr',
     name: 'CMDR Events',
     type: 'Event Management',
-    image: 'https://image.thum.io/get/width/1200/crop/800/noanimate/https://cmdrevents.in/',
+    image: {
+      desktop: '/assets/images/cmdr-desktop.png',
+      mobile: '/assets/images/cmdr-mobile.png'
+    },
     link: 'https://cmdrevents.in/'
   },
   {
