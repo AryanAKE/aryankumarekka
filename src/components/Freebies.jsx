@@ -7,7 +7,7 @@ const Freebies = () => {
   return (
     <section className="section-freebies" id="freebies">
       <div className="freebies-marquee">
-        <Marquee text="✦ GIGS AND HOBBIES" scrollDriven />
+        <Marquee text="GIGS AND HOBBIES" scrollDriven />
       </div>
 
       <div className="freebies-heading-row">
