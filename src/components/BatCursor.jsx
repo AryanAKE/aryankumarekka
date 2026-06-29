@@ -76,22 +76,22 @@ const BatCursor = () => {
       >
         <svg viewBox="0 0 100 100" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
           <g fill="#FFFFFF">
-            <!-- Left Wing -->
+            {/* Left Wing */}
             <path className="wing wing-left" d="M 46 40 C 20 10, 0 30, 0 40 C 10 50, 20 70, 25 70 C 35 60, 46 55, 46 55 Z" />
-            <!-- Right Wing -->
+            {/* Right Wing */}
             <path className="wing wing-right" d="M 54 40 C 80 10, 100 30, 100 40 C 90 50, 80 70, 75 70 C 65 60, 54 55, 54 55 Z" />
             
-            <!-- Body -->
+            {/* Body */}
             <ellipse cx="50" cy="50" rx="8" ry="16" />
             
-            <!-- Head -->
+            {/* Head */}
             <circle cx="50" cy="30" r="7" />
             
-            <!-- Ears -->
+            {/* Ears */}
             <polygon points="46,28 41,16 49,26" />
             <polygon points="54,28 59,16 51,26" />
             
-            <!-- Glowing Red Eyes -->
+            {/* Glowing Red Eyes */}
             <circle cx="47" cy="28" r="1.5" fill="#E23636" />
             <circle cx="53" cy="28" r="1.5" fill="#E23636" />
           </g>
