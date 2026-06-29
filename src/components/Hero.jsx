@@ -65,7 +65,7 @@ const Hero = () => {
         </div>
 
         <div className="hero_copyright-wrapper">
-          <div className="copyright-text">©2024</div>
+          <div className="copyright-text">©2026</div>
         </div>
       </div>
     </section>

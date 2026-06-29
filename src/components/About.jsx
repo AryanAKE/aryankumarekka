@@ -17,20 +17,30 @@ const About = () => {
         
         <div className="about-right animate-on-scroll" id="about-right">
           <p className="about-bio">
-            <span className="highlight">Matthis </span>
+            <span className="highlight">Aryan Kumar Ekka </span>
             <span className="label">(he/him)</span>
-            {' '}is a nomad product and brand designer with a passion for art and technology. He uses Webflow and other low-code tools to create stunning, one-of-a-kind pieces that come to life on the internet. Currently residing in the lush jungle of Mexico, Matthis operates globally and is ready to take on any design challenge.
+            {' '}is a full-stack web developer and cinematic video editor with a passion for digital storytelling and modern web technologies. He uses tools like React Native, PHP, MySQL, and professional editing software to create stunning, functional platforms and high-end visual stories that come to life on the internet. Currently residing in Assam, Aryan operates his digital agency globally and is always ready to take on the next creative design or technical challenge.
           </p>
           
           <div className="about-role-label">
-            BUILDING PRODUCTS AT THE CROSSPATHS OF AI — SAAS — WEB3.
+            BUILDING PRODUCTS AT THE CROSSPATHS OF FULL-STACK DEV — CINEMATIC MEDIA — GRAPHIC DESIGN.
           </div>
           
-          <div className="about-current-job">
-            <img src="/assets/images/64f5e79fb44965b0c314f49a_SVZ.svg" alt="SVZ logo" className="job-logo" />
-            <div>
-              <div className="about-job-title">Senior Design Director</div>
-              <div className="about-job-company">SVZ</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+            <div className="about-current-job">
+              <div className="job-logo" style={{ background: '#333', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '12px', fontWeight: 'bold' }}>EM</div>
+              <div>
+                <div className="about-job-title">Founder & Lead Developer</div>
+                <div className="about-job-company">Echelon Media</div>
+              </div>
+            </div>
+
+            <div className="about-current-job">
+              <div className="job-logo" style={{ background: '#333', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '12px', fontWeight: 'bold' }}>SAP</div>
+              <div>
+                <div className="about-job-title">Founder & Media Producer</div>
+                <div className="about-job-company">SAP Studios</div>
+              </div>
             </div>
           </div>
         </div>
