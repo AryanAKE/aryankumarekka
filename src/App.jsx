@@ -3,6 +3,7 @@ import Hero from './components/Hero';
 import About from './components/About';
 import Work from './components/Work';
 import Freebies from './components/Freebies';
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver';
 import './App.css';
@@ -17,6 +18,7 @@ function App() {
       <About />
       <Work />
       <Freebies />
+      <Contact />
       <Footer />
     </div>
   );
