@@ -1,38 +1,79 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Marquee from './Marquee';
 import { projects } from '../data';
 import './Work.css';
 
 const Work = () => {
   const headingStr = '⤵ Projects';
+  const timelineRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!timelineRef.current) return;
+      
+      const rect = timelineRef.current.getBoundingClientRect();
+      const windowHeight = window.innerHeight;
+      
+      const start = rect.top - (windowHeight * 0.7);
+      const end = rect.height; 
+      
+      let progress = 0;
+      if (start < 0) {
+        progress = Math.min(Math.max((Math.abs(start) / end) * 100, 0), 100);
+      }
+      
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <section className="section-work" id="work">
       {/* Education Section */}
       <div className="education-section">
         <h3 className="education-heading">EDUCATION QUALIFICATIONS</h3>
-        <div className="education-grid">
-          <div className="edu-item">
-            <div className="edu-meta">AUG 2025 - AUG 2027</div>
-            <div className="edu-degree">Master of Computer Applications (MCA)</div>
-            <div className="edu-school">Tezpur University (Present)</div>
-            <div className="edu-desc">Computer Programming, Specific Applications</div>
+        <div className="timeline-container" ref={timelineRef}>
+          <div className="timeline-track">
+            <div className="timeline-progress" style={{ height: `${scrollProgress}%` }}></div>
           </div>
-          <div className="edu-item">
-            <div className="edu-meta">FEB 2022 - 2025</div>
-            <div className="edu-degree">Bachelor of Computer Application</div>
-            <div className="edu-school">D.H.S.K. College, Dibrugarh</div>
-            <div className="edu-desc">Computer Applications</div>
+
+          <div className={`timeline-item ${scrollProgress > 5 ? 'active' : ''}`}>
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <div className="edu-meta">AUG 2025 - AUG 2027</div>
+              <div className="edu-degree">Master of Computer Applications (MCA)</div>
+              <div className="edu-school">Tezpur University (Present)</div>
+              <div className="edu-desc">Computer Programming, Specific Applications</div>
+            </div>
           </div>
-          <div className="edu-item">
-            <div className="edu-meta">APR 2020 - MAR 2022</div>
-            <div className="edu-degree">HS, PCM</div>
-            <div className="edu-school">St. Xavier's H.S. School, Duliajan</div>
+          <div className={`timeline-item ${scrollProgress > 30 ? 'active' : ''}`}>
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <div className="edu-meta">FEB 2022 - 2025</div>
+              <div className="edu-degree">Bachelor of Computer Application</div>
+              <div className="edu-school">D.H.S.K. College, Dibrugarh</div>
+              <div className="edu-desc">Computer Applications</div>
+            </div>
           </div>
-          <div className="edu-item">
-            <div className="edu-meta">FEB 2008 - MAR 2020</div>
-            <div className="edu-degree">HSLC</div>
-            <div className="edu-school">St Mary's Higher Secondary School Naharkatia</div>
+          <div className={`timeline-item ${scrollProgress > 60 ? 'active' : ''}`}>
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <div className="edu-meta">APR 2020 - MAR 2022</div>
+              <div className="edu-degree">HS, PCM</div>
+              <div className="edu-school">St. Xavier's H.S. School, Duliajan</div>
+            </div>
+          </div>
+          <div className={`timeline-item ${scrollProgress > 85 ? 'active' : ''}`}>
+            <div className="timeline-dot"></div>
+            <div className="timeline-content">
+              <div className="edu-meta">FEB 2008 - MAR 2020</div>
+              <div className="edu-degree">HSLC</div>
+              <div className="edu-school">St Mary's Higher Secondary School Naharkatia</div>
+            </div>
           </div>
         </div>
       </div>
