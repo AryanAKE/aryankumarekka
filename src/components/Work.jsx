@@ -33,46 +33,64 @@ const Work = () => {
 
   return (
     <section className="section-work" id="work">
-      {/* Education Section */}
+      {/* Education Section — macOS Browser Window */}
       <div className="education-section">
         <h3 className="education-heading">EDUCATION QUALIFICATIONS</h3>
-        <div className="timeline-container" ref={timelineRef}>
-          <div className="timeline-track">
-            <div className="timeline-progress" style={{ height: `${scrollProgress}%` }}></div>
+        <div className="macos-window" ref={timelineRef}>
+          {/* Title Bar */}
+          <div className="macos-titlebar">
+            <div className="macos-dots">
+              <span className="dot red"></span>
+              <span className="dot yellow"></span>
+              <span className="dot green"></span>
+            </div>
+            <div className="macos-tab">
+              <span className="macos-tab-icon">🎓</span>
+              <span className="macos-tab-title">aryan://education</span>
+            </div>
+            <div className="macos-dots-spacer"></div>
           </div>
 
-          <div className={`timeline-item ${scrollProgress > 5 ? 'active' : ''}`}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <div className="edu-meta">AUG 2025 - AUG 2027</div>
-              <div className="edu-degree">Master of Computer Applications (MCA)</div>
-              <div className="edu-school">Tezpur University (Present)</div>
-              <div className="edu-desc">Computer Programming, Specific Applications</div>
+          {/* Address Bar */}
+          <div className="macos-addressbar">
+            <div className="macos-nav-arrows">
+              <span>‹</span>
+              <span>›</span>
+            </div>
+            <div className="macos-url-bar">
+              <span className="macos-lock">🔒</span>
+              <span>aryankumarekka.dev/education</span>
             </div>
           </div>
-          <div className={`timeline-item ${scrollProgress > 30 ? 'active' : ''}`}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <div className="edu-meta">FEB 2022 - 2025</div>
-              <div className="edu-degree">Bachelor of Computer Application</div>
-              <div className="edu-school">D.H.S.K. College, Dibrugarh</div>
-              <div className="edu-desc">Computer Applications</div>
-            </div>
+
+          {/* Scroll Progress Bar */}
+          <div className="macos-progress-track">
+            <div className="macos-progress-bar" style={{ width: `${scrollProgress}%` }}></div>
           </div>
-          <div className={`timeline-item ${scrollProgress > 60 ? 'active' : ''}`}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <div className="edu-meta">APR 2020 - MAR 2022</div>
-              <div className="edu-degree">HS, PCM</div>
-              <div className="edu-school">St. Xavier's H.S. School, Duliajan</div>
+
+          {/* Content Area */}
+          <div className="macos-content">
+            <div className={`macos-edu-card ${scrollProgress > 5 ? 'visible' : ''}`}>
+              <div className="edu-card-year">AUG 2025 — AUG 2027</div>
+              <div className="edu-card-degree">Master of Computer Applications (MCA)</div>
+              <div className="edu-card-school">📍 Tezpur University <span className="edu-badge present">PRESENT</span></div>
+              <div className="edu-card-desc">Computer Programming, Specific Applications</div>
             </div>
-          </div>
-          <div className={`timeline-item ${scrollProgress > 85 ? 'active' : ''}`}>
-            <div className="timeline-dot"></div>
-            <div className="timeline-content">
-              <div className="edu-meta">FEB 2008 - MAR 2020</div>
-              <div className="edu-degree">HSLC</div>
-              <div className="edu-school">St Mary's Higher Secondary School Naharkatia</div>
+            <div className={`macos-edu-card ${scrollProgress > 30 ? 'visible' : ''}`}>
+              <div className="edu-card-year">FEB 2022 — 2025</div>
+              <div className="edu-card-degree">Bachelor of Computer Application</div>
+              <div className="edu-card-school">📍 D.H.S.K. College, Dibrugarh</div>
+              <div className="edu-card-desc">Computer Applications</div>
+            </div>
+            <div className={`macos-edu-card ${scrollProgress > 60 ? 'visible' : ''}`}>
+              <div className="edu-card-year">APR 2020 — MAR 2022</div>
+              <div className="edu-card-degree">HS, PCM</div>
+              <div className="edu-card-school">📍 St. Xavier's H.S. School, Duliajan</div>
+            </div>
+            <div className={`macos-edu-card ${scrollProgress > 85 ? 'visible' : ''}`}>
+              <div className="edu-card-year">FEB 2008 — MAR 2020</div>
+              <div className="edu-card-degree">HSLC</div>
+              <div className="edu-card-school">📍 St Mary's Higher Secondary School Naharkatia</div>
             </div>
           </div>
         </div>

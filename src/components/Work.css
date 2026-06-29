@@ -18,98 +18,197 @@
   font-weight: 700;
 }
 
-.timeline-container {
-  position: relative;
+/* ── macOS Browser Window ── */
+.macos-window {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(18, 18, 18, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255,255,255,0.05);
+  margin-top: 30px;
+}
+
+/* Title Bar */
+.macos-titlebar {
   display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding-left: 40px;
-  margin-top: 40px;
-  max-width: 800px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(30, 30, 30, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.timeline-track {
-  position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: var(--border);
-  border-radius: 2px;
+.macos-dots {
+  display: flex;
+  gap: 8px;
+  min-width: 60px;
 }
 
-.timeline-progress {
-  width: 100%;
-  background: var(--fg);
-  border-radius: 2px;
-  transition: height 0.1s ease-out;
-}
-
-.timeline-item {
-  position: relative;
-  opacity: 0.3;
-  transform: translateX(-10px);
-  transition: all 0.5s ease-out;
-}
-
-.timeline-item.active {
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.timeline-dot {
-  position: absolute;
-  left: -46px; 
-  top: 0px;
-  width: 14px;
-  height: 14px;
+.macos-dots .dot {
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
-  background: var(--bg);
-  border: 2px solid var(--border);
-  transition: all 0.5s ease-out;
 }
 
-.timeline-item.active .timeline-dot {
-  background: var(--fg);
-  border-color: var(--fg);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-}
+.macos-dots .dot.red { background: #ff5f57; }
+.macos-dots .dot.yellow { background: #febc2e; }
+.macos-dots .dot.green { background: #28c840; }
 
-.timeline-content {
+.macos-tab {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.03em;
+}
+
+.macos-tab-icon { font-size: 0.85rem; }
+.macos-dots-spacer { min-width: 60px; }
+
+/* Address Bar */
+.macos-addressbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  background: rgba(25, 25, 25, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.macos-nav-arrows {
+  display: flex;
+  gap: 10px;
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 1.2rem;
+  font-weight: 300;
+  user-select: none;
+}
+
+.macos-url-bar {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  display: flex;
+  align-items: center;
   gap: 8px;
 }
 
-.edu-meta {
+.macos-lock { font-size: 0.7rem; }
+
+/* Progress Bar */
+.macos-progress-track {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.macos-progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #4d7eff, #a855f7, #ff6bcb);
+  border-radius: 0 3px 3px 0;
+  transition: width 0.15s ease-out;
+}
+
+/* Content Area */
+.macos-content {
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.macos-edu-card {
+  padding: 20px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.macos-edu-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.macos-edu-card.visible:hover {
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.edu-card-year {
   font-size: 0.65rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--grey, #888);
-  border: 1px solid var(--border);
-  padding: 2px 8px;
-  border-radius: 4px;
-  width: fit-content;
   margin-bottom: 8px;
 }
 
-.edu-degree {
-  font-size: 1.1rem;
+.edu-card-degree {
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--fg);
   line-height: 1.3;
+  margin-bottom: 6px;
 }
 
-.edu-school {
-  font-size: 0.9rem;
+.edu-card-school {
+  font-size: 0.85rem;
   color: var(--fg);
-  opacity: 0.8;
+  opacity: 0.75;
 }
 
-.edu-desc {
+.edu-badge {
+  display: inline-block;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+  font-weight: 700;
+}
+
+.edu-badge.present {
+  background: rgba(40, 200, 64, 0.15);
+  color: #28c840;
+  border: 1px solid rgba(40, 200, 64, 0.3);
+}
+
+.edu-card-desc {
   font-size: 0.8rem;
   color: var(--grey, #888);
-  margin-top: 4px;
+  margin-top: 6px;
+}
+
+/* Staggered delays */
+.macos-edu-card:nth-child(1) { transition-delay: 0s; }
+.macos-edu-card:nth-child(2) { transition-delay: 0.08s; }
+.macos-edu-card:nth-child(3) { transition-delay: 0.16s; }
+.macos-edu-card:nth-child(4) { transition-delay: 0.24s; }
+
+@media (max-width: 767px) {
+  .macos-window {
+    border-radius: 10px;
+  }
+  .macos-content {
+    padding: 20px 16px;
+  }
+  .macos-edu-card {
+    padding: 16px;
+  }
+  .macos-tab {
+    display: none;
+  }
 }
 
 .work-header {

@@ -30,7 +30,7 @@ const About = () => {
             <div className="about-current-job">
               <img src="/assets/images/echelon logo blue-02.png" alt="Echelon Media Logo" className="job-logo" style={{ borderRadius: '50%', objectFit: 'contain', width: '50px', height: '50px', background: '#fff' }} />
               <div>
-                <div className="about-job-title">Founder & Lead Developer</div>
+                <div className="about-job-title">Cheif Technology Officer & Senior Developer</div>
                 <div className="about-job-company">Echelon Media</div>
               </div>
             </div>
