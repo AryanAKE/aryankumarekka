@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './SpidermanCursor.css';
+import './BatCursor.css';
 
-const SpidermanCursor = () => {
+const BatCursor = () => {
   const [position, setPosition] = useState({ x: -100, y: -100, angle: 0, isMoving: false });
   const [isHovering, setIsHovering] = useState(false);
   const [isActive, setIsActive] = useState(false);
@@ -36,7 +36,7 @@ const SpidermanCursor = () => {
       let isMoving = false;
 
       if (distance > 0.5) {
-        // Calculate angle. +90 because our SVG spider points UP natively.
+        // Calculate angle. +90 because our SVG bat points UP natively.
         angle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
         lastAngle.current = angle;
         isMoving = true;
@@ -63,44 +63,42 @@ const SpidermanCursor = () => {
 
   return (
     <div 
-      className={`spider-cursor ${isHovering ? 'is-hovering' : ''}`}
+      className={`bat-cursor ${isHovering ? 'is-hovering' : ''}`}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`
       }}
     >
       <div 
-        className={`spider-icon ${position.isMoving ? 'is-crawling' : ''}`}
+        className={`bat-icon ${position.isMoving ? 'is-flying' : ''}`}
         style={{
           transform: `rotate(${position.angle}deg)`
         }}
       >
-        <svg viewBox="0 0 100 100" width="34" height="34" xmlns="http://www.w3.org/2000/svg">
-          {/* Black widow style top-down spider */}
-          <g fill="#FFFFFF" stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-            {/* Legs - Left */}
-            <path className="leg leg-l1" d="M40 35 Q15 15 10 25" fill="none" />
-            <path className="leg leg-l2" d="M38 45 Q10 40 5 55" fill="none" />
-            <path className="leg leg-l3" d="M38 55 Q10 70 15 85" fill="none" />
-            <path className="leg leg-l4" d="M40 65 Q25 95 30 100" fill="none" />
+        <svg viewBox="0 0 100 100" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#FFFFFF">
+            <!-- Left Wing -->
+            <path className="wing wing-left" d="M 46 40 C 20 10, 0 30, 0 40 C 10 50, 20 70, 25 70 C 35 60, 46 55, 46 55 Z" />
+            <!-- Right Wing -->
+            <path className="wing wing-right" d="M 54 40 C 80 10, 100 30, 100 40 C 90 50, 80 70, 75 70 C 65 60, 54 55, 54 55 Z" />
             
-            {/* Legs - Right */}
-            <path className="leg leg-r1" d="M60 35 Q85 15 90 25" fill="none" />
-            <path className="leg leg-r2" d="M62 45 Q90 40 95 55" fill="none" />
-            <path className="leg leg-r3" d="M62 55 Q90 70 85 85" fill="none" />
-            <path className="leg leg-r4" d="M60 65 Q75 95 70 100" fill="none" />
-
-            {/* Abdomen */}
-            <ellipse cx="50" cy="65" rx="16" ry="24" stroke="none" />
+            <!-- Body -->
+            <ellipse cx="50" cy="50" rx="8" ry="16" />
             
-            {/* Cephalothorax (Head/Torso) */}
-            <circle cx="50" cy="35" r="12" stroke="none" />
+            <!-- Head -->
+            <circle cx="50" cy="30" r="7" />
+            
+            <!-- Ears -->
+            <polygon points="46,28 41,16 49,26" />
+            <polygon points="54,28 59,16 51,26" />
+            
+            <!-- Glowing Red Eyes -->
+            <circle cx="47" cy="28" r="1.5" fill="#E23636" />
+            <circle cx="53" cy="28" r="1.5" fill="#E23636" />
           </g>
-          {/* Subtle red hourglass marking on back */}
-          <path d="M46 58 L54 58 L46 72 L54 72 Z" fill="#E23636" stroke="none" />
         </svg>
       </div>
     </div>
   );
 };
 
-export default SpidermanCursor;
+export default BatCursor;

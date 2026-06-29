@@ -5,7 +5,7 @@ import Work from './components/Work';
 import Freebies from './components/Freebies';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import SpidermanCursor from './components/SpidermanCursor';
+import BatCursor from './components/BatCursor';
 import { useIntersectionObserver } from './hooks/useIntersectionObserver';
 import './App.css';
 
@@ -15,7 +15,7 @@ function App() {
 
   return (
     <div className="app-container">
-      <SpidermanCursor />
+      <BatCursor />
       <Hero />
       <About />
       <Work />
