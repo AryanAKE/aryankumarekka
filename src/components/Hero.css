@@ -212,7 +212,7 @@
 
 .marquee-content {
   display: flex;
-  animation: marquee-scroll 20s linear infinite;
+  animation: marquee-scroll 14s linear infinite;
 }
 
 .marquee-text {

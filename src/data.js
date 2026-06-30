@@ -29,7 +29,7 @@ export const projects = [
     subtitle: 'A beautiful travel website showcasing tours to Japan.',
     type: 'Tour & Travel',
     image: '/assets/images/japantour.png',
-    link: 'https://japantour-five.vercel.app'
+    link: 'https://japantourtr1.vercel.app/'
   },
   {
     id: 'findyourspace',

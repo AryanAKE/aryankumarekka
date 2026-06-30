@@ -1,4 +1,5 @@
 import React from 'react';
+import Loader from './components/Loader';
 import Hero from './components/Hero';
 import About from './components/About';
 import TechStack from './components/TechStack';
@@ -15,6 +16,7 @@ function App() {
 
   return (
     <div className="app-container">
+      <Loader />
       <Hero />
       <About />
       <TechStack />
