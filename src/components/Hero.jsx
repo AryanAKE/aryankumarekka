@@ -22,6 +22,9 @@ const Hero = () => {
           <h1 className="heading-style-header">
             CREATIVE nomad, designing digital products & brands.
           </h1>
+          <a href="/video-editing.html" className="hero-portfolio-btn">
+            Wanna see my video editing portfolio?
+          </a>
         </div>
 
         {/* Right: Social Links */}
