@@ -1,7 +1,22 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Hero.css';
 
 const Hero = () => {
+  const marqueeRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (marqueeRef.current) {
+        const scrollY = window.scrollY;
+        // Add scroll sensitivity while maintaining the original translateY
+        marqueeRef.current.style.transform = `translateY(-50%) translateX(-${scrollY * 0.8}px)`;
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <section className="hero-section">
       {/* Top Navigation */}
@@ -50,8 +65,7 @@ const Hero = () => {
       {/* Main Content Area */}
       <div className="hero_wrapper">
 
-
-        <div className="marquee">
+        <div className="marquee" ref={marqueeRef}>
           <div className="marquee-content">
             <h1 className="marquee-text">ARYAN KUMAR EKKA</h1>
           </div>
