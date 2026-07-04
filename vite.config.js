@@ -8,5 +8,8 @@ export default defineConfig({
     watch: {
       ignored: ['**/archive/**']
     }
+  },
+  optimizeDeps: {
+    entries: ['index.html']
   }
 })
