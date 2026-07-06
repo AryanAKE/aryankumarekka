@@ -67,10 +67,10 @@ const Hero = () => {
 
         <div className="marquee" ref={marqueeRef}>
           <div className="marquee-content">
-            <h1 className="marquee-text">ARYAN KUMAR EKKA</h1>
-          </div>
-          <div className="marquee-content">
-            <h1 className="marquee-text">ARYAN KUMAR EKKA</h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
           </div>
         </div>
 
