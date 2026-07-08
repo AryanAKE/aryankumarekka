@@ -45,43 +45,20 @@ export default function CategoryPage() {
         </div>
       </section>
 
-      {/* Selected Works Grid */}
+      {/* Coming Soon Section */}
       <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between border-b border-black pb-4 mb-8">
-          <h2 className="text-xl font-bold tracking-tight text-black">
-            Selected Works
+        <div className="border-4 border-black border-dashed py-32 px-4 flex flex-col items-center justify-center bg-white shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-[8px] hover:translate-y-[8px] transition-all duration-300">
+          <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-black uppercase mb-6 text-center">
+            Coming Soon
           </h2>
-          <span className="text-xs font-medium uppercase tracking-widest text-neutral-400">
-            4 Projects
-          </span>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {[1, 2, 3, 4].map((item) => (
-            <div key={item} className="group cursor-pointer">
-              <div className="aspect-video w-full bg-neutral-200 border border-black relative overflow-hidden flex items-center justify-center">
-                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/5" />
-                <span className="text-neutral-400 font-mono text-xs uppercase tracking-widest">[Project Media]</span>
-              </div>
-              <div className="mt-4 flex justify-between items-start">
-                <div>
-                  <h3 className="text-lg font-bold text-black group-hover:underline underline-offset-4">
-                    {category.name.split(' ')[0]} Project {item}
-                  </h3>
-                  <p className="text-sm text-neutral-500 mt-1">Client Name</p>
-                </div>
-                <span className="text-xs font-medium uppercase tracking-widest text-neutral-400">
-                  2026
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-black px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition-transform hover:scale-105 shadow-xl">
-            Start a Project
-          </a>
+          <p className="text-lg text-neutral-600 max-w-xl mx-auto font-medium text-center">
+            We are currently curating our best {category.name.toLowerCase()} projects. Our showcase will be available shortly.
+          </p>
+          <div className="mt-10">
+            <Link to="/" className="inline-flex items-center justify-center border border-black bg-black px-8 py-4 text-xs font-bold uppercase tracking-widest text-white transition-transform hover:-translate-y-1 hover:shadow-lg">
+              Return Home
+            </Link>
+          </div>
         </div>
       </section>
     </div>
