@@ -92,23 +92,23 @@ export const freebies = [
 export const testimonials = [
   {
     id: 'joe',
-    quote: '"Matthis is a top-tier designer and developer. Working with him on Finsweet projects has been an absolute pleasure. His creativity, technical skill, and ability to bring ideas to life are unmatched."',
+    quote: '"Aryan is a top-tier full-stack developer. Working with him on web projects has been an absolute pleasure. His creativity, technical skill, and ability to bring complex ideas to life are unmatched."',
     name: 'Joe Krug',
-    company: 'Finsweet',
+    company: 'Tech Innovators',
     avatar: '/assets/images/6392a9798df82bc6f6d51772_T1V13UTS5-U1V13UTUZ-ce542dbea3ff-512.jpeg'
   },
   {
     id: 'vanessa',
-    quote: '"I had the pleasure of working with Matthis on a complex branding and web design project. His attention to detail, creativity, and professionalism make him a standout designer."',
+    quote: '"I had the pleasure of working with Aryan on a complex web application. His attention to detail, robust code quality, and professionalism make him a standout software engineer."',
     name: 'Vanessa Gallerne',
     company: 'CCPAGROUP',
     avatar: '/assets/images/6392a97b73801c4684b93c89_T1V13UTS5-UJQR8K13P-2ceccd310bb3-512.jpeg'
   },
   {
     id: 'eve',
-    quote: '"Matthis is incredibly talented—his portfolio designs are breathtaking. His ability to combine aesthetics with functionality is remarkable."',
+    quote: '"Aryan is incredibly talented—the websites he builds are blazing fast and visually breathtaking. His ability to combine premium aesthetics with scalable functionality is remarkable."',
     name: 'Eve Kayser',
-    company: 'Finsweet',
+    company: 'Digital Studio',
     avatar: '/assets/images/6392a97c3a9a68fd4b55811b_T1V13UTS5-U013QRU04MC-e1a9d56eeb87-512.jpeg'
   },
 ];
