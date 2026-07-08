@@ -38,6 +38,9 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex items-center gap-3">
+            <a href="/" className="text-[10px] font-bold uppercase tracking-widest text-black border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">
+              &larr; MAIN PORTFOLIO
+            </a>
           </div>
         </div>
       </div>

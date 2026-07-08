@@ -33,7 +33,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer id="contact" className="bg-[#050505] text-white py-16 px-4 sm:px-6 lg:px-8 border-t border-[#1a1a1a]">
+    <footer id="contact" className="bg-[#fafafa] text-black py-16 px-4 sm:px-6 lg:px-8 border-t border-[#ebebeb]">
       <div className="mx-auto max-w-7xl flex flex-col min-h-[400px] justify-between">
         
         {/* Top Section */}
@@ -42,11 +42,11 @@ export default function Footer() {
           {/* Left: Made with love */}
           <div className="flex flex-col justify-between">
             <div>
-              <h3 className="text-white font-mono font-bold text-lg tracking-tight">Made with love</h3>
-              <p className="text-[#888] font-mono text-[13px] mt-2">in Assam, India.</p>
+              <h3 className="text-black font-mono font-bold text-lg tracking-tight">Made with love</h3>
+              <p className="text-[#666] font-mono text-[13px] mt-2">in Assam, India.</p>
             </div>
             <div className="mt-16 md:mt-auto">
-              <p className="text-[#666] font-mono text-[13px]">
+              <p className="text-[#888] font-mono text-[13px]">
                 Aryan Kumar Ekka · Full-Stack Developer
               </p>
             </div>
@@ -54,32 +54,32 @@ export default function Footer() {
 
           {/* Center: Local Time */}
           <div className="flex flex-col items-center text-center">
-            <p className="text-[#666] font-mono text-[11px] uppercase tracking-[0.2em] mb-4">
+            <p className="text-[#888] font-mono text-[11px] uppercase tracking-[0.2em] mb-4">
               Local Time — Assam, India
             </p>
-            <div className="font-mono text-[3.5rem] leading-none font-bold tracking-tighter text-white mb-3">
+            <div className="font-mono text-[3.5rem] leading-none font-bold tracking-tighter text-black mb-3">
               {formatTime(time)}
             </div>
-            <p className="text-[#888] font-mono text-[11px] uppercase tracking-widest font-bold">
+            <p className="text-[#666] font-mono text-[11px] uppercase tracking-widest font-bold">
               IST (UTC+5:30)
             </p>
           </div>
 
           {/* Right: Links */}
           <div className="flex flex-col justify-start">
-            <div className="flex flex-col border border-[#1a1a1a] rounded-lg overflow-hidden bg-black/40">
+            <div className="flex flex-col border border-[#e5e5e5] rounded-lg overflow-hidden bg-white">
               {links.map((link, i) => (
                 <a
                   key={link.name}
                   href={link.url}
-                  className={`flex items-center justify-between px-6 py-4 hover:bg-[#111] transition-colors group ${
-                    i !== links.length - 1 ? 'border-b border-[#1a1a1a]' : ''
+                  className={`flex items-center justify-between px-6 py-4 hover:bg-[#f0f0f0] transition-colors group ${
+                    i !== links.length - 1 ? 'border-b border-[#e5e5e5]' : ''
                   }`}
                 >
-                  <span className="font-mono text-[13px] text-[#ccc] group-hover:text-white transition-colors">
+                  <span className="font-mono text-[13px] text-[#444] group-hover:text-black transition-colors">
                     {link.name}
                   </span>
-                  <span className="text-[#444] group-hover:text-white transition-colors">
+                  <span className="text-[#999] group-hover:text-black transition-colors">
                     <ArrowUpRightIcon />
                   </span>
                 </a>
@@ -91,10 +91,10 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mt-32 pt-8">
-          <p className="text-[#555] font-mono text-[11px]">
+          <p className="text-[#888] font-mono text-[11px]">
             © 2026 Aryan Kumar Ekka. All rights reserved.
           </p>
-          <p className="text-[#555] font-mono text-[11px] mt-4 md:mt-0">
+          <p className="text-[#888] font-mono text-[11px] mt-4 md:mt-0">
             Designed & built by Aryan Kumar Ekka
           </p>
         </div>
