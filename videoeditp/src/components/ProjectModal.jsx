@@ -28,8 +28,11 @@ export default function ProjectModal({ project, onClose }) {
               <div className="flex h-16 w-16 items-center justify-center rounded-full border border-neutral-300">
                 <PlayIcon size={28} />
               </div>
-              <span className="text-xs font-medium uppercase tracking-widest">
+              <span className="text-xs font-bold uppercase tracking-widest text-black">
                 Preview Media
+              </span>
+              <span className="mt-2 inline-block bg-black px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
+                Coming Soon
               </span>
             </div>
           </div>

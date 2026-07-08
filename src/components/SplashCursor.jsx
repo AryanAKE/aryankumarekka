@@ -888,7 +888,7 @@ function SplashCursor({
       const r = parseInt(val.slice(0, 2), 16) / 255;
       const g = parseInt(val.slice(2, 4), 16) / 255;
       const b = parseInt(val.slice(4, 6), 16) / 255;
-      return { r: r * 0.15, g: g * 0.15, b: b * 0.15 };
+      return { r: r * 2.0, g: g * 2.0, b: b * 2.0 };
     }
 
     function generateColor() {
@@ -896,9 +896,9 @@ function SplashCursor({
         return hexToRGB(config.COLOR);
       }
       let c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
+      c.r *= 2.0;
+      c.g *= 2.0;
+      c.b *= 2.0;
       return c;
     }
 
@@ -1073,10 +1073,11 @@ function SplashCursor({
         position: 'fixed',
         top: 0,
         left: 0,
-        zIndex: 50,
+        zIndex: -1,
         pointerEvents: 'none',
         width: '100%',
-        height: '100%'
+        height: '100%',
+        opacity: 0.5
       }}
     >
       <canvas
