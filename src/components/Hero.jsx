@@ -67,13 +67,13 @@ const Hero = () => {
 
         <div className="marquee" ref={marqueeRef}>
           <div className="marquee-content">
-            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
-            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
-            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
-            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">✦</span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
+            <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
           </div>
         </div>
-
+        {/* ✦ */}
         <div className="scroll-indicator_container">
           <div className="scroll-indicator">
             <div className="scroll-icon">
