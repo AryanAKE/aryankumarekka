@@ -1,21 +1,9 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import './Hero.css';
 
 const Hero = () => {
-  const marqueeRef = useRef(null);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (marqueeRef.current) {
-        const scrollY = window.scrollY;
-        // Add scroll sensitivity while maintaining the original translateY
-        marqueeRef.current.style.transform = `translateY(-50%) translateX(-${scrollY * 0.8}px)`;
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  // The marquee now only uses CSS animation for scrolling
 
   return (
     <section className="hero-section">
@@ -65,7 +53,7 @@ const Hero = () => {
       {/* Main Content Area */}
       <div className="hero_wrapper">
 
-        <div className="marquee" ref={marqueeRef}>
+        <div className="marquee">
           <div className="marquee-content">
             <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
             <h1 className="marquee-text">ARYAN KUMAR EKKA <span className="marquee-separator">   </span></h1>
