@@ -1,0 +1,87 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Override main portfolio's Space Mono with Inter for all VE page elements */
+.ve-page,
+.ve-page *,
+.ve-page *::before,
+.ve-page *::after {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif !important;
+}
+
+/* Re-allow monospace for elements that explicitly need it */
+.ve-page .font-mono,
+.ve-page .font-mono * {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+}
+
+/* Re-allow serif for elements that explicitly need it */
+.ve-page .font-serif,
+.ve-page .font-serif * {
+  font-family: ui-serif, Georgia, Cambria, serif !important;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ve-animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.ve-animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-vertical-down {
+  0% { transform: translateY(calc(-50% - 1.5rem)); }
+  100% { transform: translateY(0); }
+}
+
+.ve-animate-marquee-vertical-down {
+  animation: marquee-vertical-down 3s linear infinite;
+}
+
+.ve-fade-up-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ve-fade-up-element.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.ve-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.ve-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ve-grid-bg {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+}
+
+/* ── Border utilities (bypass Tailwind preflight: false issue) ──────────────
+   Without preflight, border-style defaults to 'none' in browsers, so
+   Tailwind's border-r / border-t etc. don't render. These classes use
+   the full CSS shorthand to guarantee rendering.
+──────────────────────────────────────────────────────────────────────────── */
+.ve-border-t  { border-top:    1px solid #000 !important; }
+.ve-border-b  { border-bottom: 1px solid #000 !important; }
+.ve-border-r  { border-right:  1px solid #000 !important; }
+.ve-border-l  { border-left:   1px solid #000 !important; }
+.ve-border    { border:        1px solid #000 !important; }
+
+@media (min-width: 1024px) {
+  .lg\:ve-no-border-t { border-top: none !important; }
+}

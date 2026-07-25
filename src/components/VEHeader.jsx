@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-export default function Header() {
+export default function VEHeader() {
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
-  const isHome = location.pathname === '/';
+  const isHome = location.pathname === '/video-editing' || location.pathname === '/video-editing/';
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10);
@@ -13,7 +13,7 @@ export default function Header() {
   }, []);
 
   const handleNavClick = (e, targetId) => {
-    if (!isHome) return; // let normal navigation happen if not on home page
+    if (!isHome) return;
     e.preventDefault();
     if (targetId === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -24,17 +24,17 @@ export default function Header() {
   };
 
   const navItems = [
-    { label: 'Home', targetId: 'home', href: '/' },
-    { label: 'Work', targetId: 'portfolio', href: '/#portfolio' },
-    { label: 'Categories', targetId: 'services', href: '/#services' },
-    { label: 'Contact', targetId: 'contact', href: '/#contact' },
+    { label: 'Home', targetId: 'home', href: '/video-editing' },
+    { label: 'Work', targetId: 'portfolio', href: '/video-editing#portfolio' },
+    { label: 'Categories', targetId: 'services', href: '/video-editing#services' },
+    { label: 'Contact', targetId: 'contact', href: '/video-editing#contact' },
   ];
 
   return (
     <header className={`sticky top-0 z-40 bg-white transition-shadow duration-300 ${scrolled ? 'shadow-sm' : ''}`}>
-      <div className="border-b border-black">
+      <div className="ve-border-b">
         <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="text-sm font-bold tracking-tight uppercase sm:text-base">
+          <Link to="/video-editing" className="text-sm font-bold tracking-tight uppercase sm:text-base">
             A.K.E.
           </Link>
           <nav className="hidden items-center gap-8 md:flex">
@@ -50,9 +50,12 @@ export default function Header() {
             ))}
           </nav>
           <div className="flex items-center gap-3">
-            <a href="/" className="text-[10px] font-bold uppercase tracking-widest text-black border border-black px-4 py-2 hover:bg-black hover:text-white transition-colors">
+            <Link
+              to="/"
+              className="text-[10px] font-bold uppercase tracking-widest text-black ve-border px-4 py-2 hover:bg-black hover:text-white transition-colors"
+            >
               &larr; MAIN PORTFOLIO
-            </a>
+            </Link>
           </div>
         </div>
       </div>

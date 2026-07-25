@@ -209,7 +209,7 @@ function Header() {
   const navItems = [
     { label: 'Home', href: '#top' },
     { label: 'Work', href: '#portfolio' },
-    { label: 'Services', href: '#services' },
+    { label: 'Categories', href: '#services' },
     { label: 'Contact', href: '#contact' }
   ];
 
