@@ -33,11 +33,11 @@ export default function VEFooter() {
   ];
 
   return (
-    <footer id="footer" className="bg-white text-black py-16 px-4 sm:px-6 lg:px-8 border-t border-[#e8e8e8]">
-      <div className="mx-auto max-w-7xl flex flex-col min-h-[400px] justify-between">
+    <footer id="footer" className="bg-white text-black py-10 px-4 sm:px-6 lg:px-8 border-t border-[#e8e8e8]">
+      <div className="mx-auto max-w-7xl flex flex-col justify-between">
 
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 lg:gap-8 pt-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-8 pt-4">
 
           {/* Left: Made with love */}
           <div className="flex flex-col justify-between">
@@ -54,13 +54,13 @@ export default function VEFooter() {
 
           {/* Center: Local Time */}
           <div className="flex flex-col items-center text-center">
-            <p className="text-[#aaa] font-mono text-[11px] uppercase tracking-[0.2em] mb-4">
+            <p className="text-[#aaa] font-mono text-[10px] uppercase tracking-[0.2em] mb-2">
               Local Time — Assam, India
             </p>
-            <div className="font-mono text-[3.5rem] leading-none font-bold tracking-tighter text-black mb-3">
+            <div className="font-mono text-[2.2rem] leading-none font-bold tracking-tighter text-black mb-2">
               {formatTime(time)}
             </div>
-            <p className="text-[#aaa] font-mono text-[11px] uppercase tracking-widest font-bold">
+            <p className="text-[#aaa] font-mono text-[10px] uppercase tracking-widest font-bold">
               IST (UTC+5:30)
             </p>
           </div>
@@ -72,11 +72,11 @@ export default function VEFooter() {
                 <a
                   key={link.name}
                   href={link.url}
-                  className={`flex items-center justify-between px-6 py-4 hover:bg-[#f7f7f7] transition-colors group ${
+                  className={`flex items-center justify-between px-4 py-2.5 hover:bg-[#f7f7f7] transition-colors group ${
                     i !== links.length - 1 ? 'border-b border-[#e8e8e8]' : ''
                   }`}
                 >
-                  <span className="font-mono text-[13px] text-[#555] group-hover:text-black transition-colors">
+                  <span className="font-mono text-[12px] text-[#555] group-hover:text-black transition-colors">
                     {link.name}
                   </span>
                   <span className="text-[#bbb] group-hover:text-black transition-colors">
@@ -90,11 +90,11 @@ export default function VEFooter() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center mt-32 pt-8">
-          <p className="text-[#bbb] font-mono text-[11px]">
+        <div className="flex flex-col md:flex-row justify-between items-center mt-16 pt-6 border-t border-[#f0f0f0]">
+          <p className="text-[#bbb] font-mono text-[10px]">
             © 2026 Aryan Kumar Ekka. All rights reserved.
           </p>
-          <p className="text-[#bbb] font-mono text-[11px] mt-4 md:mt-0">
+          <p className="text-[#bbb] font-mono text-[10px] mt-4 md:mt-0">
             Designed &amp; built by Aryan Kumar Ekka
           </p>
         </div>
