@@ -2,13 +2,15 @@ import { useEffect } from 'react';
 import { VEXIcon, VEPlayIcon, VEExternalLinkIcon } from './VEIcons';
 
 export default function VEProjectModal({ project, onClose }) {
-  if (!project) return null;
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
+    if (!project) return;
     document.body.style.overflow = 'hidden';
-    return () => { document.body.style.overflow = 'auto'; };
-  }, []);
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [project]);
+
+  if (!project) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex justify-end">
