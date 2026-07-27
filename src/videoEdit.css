@@ -85,3 +85,32 @@
 @media (min-width: 1024px) {
   .lg\:ve-no-border-t { border-top: none !important; }
 }
+
+/* Form controls resets and styling for video edit pages */
+.ve-page input,
+.ve-page textarea {
+  background-color: transparent !important;
+  border: none !important;
+  border-bottom: 1px solid #e5e5e5 !important;
+  border-radius: 0 !important;
+  padding: 8px 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  color: #000 !important;
+  font-weight: 400 !important;
+  font-family: inherit !important;
+  transition: border-color 0.3s ease, padding-left 0.3s ease !important;
+}
+
+.ve-page input:focus,
+.ve-page textarea:focus {
+  border-bottom-color: #000 !important;
+  padding-left: 4px !important;
+}
+
+.ve-page textarea {
+  min-height: 80px;
+  resize: none;
+}
+
