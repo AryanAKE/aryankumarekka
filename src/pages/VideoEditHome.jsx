@@ -3,6 +3,7 @@ import VEHero from '../components/VEHero';
 import VEMarquee from '../components/VEMarquee';
 import VEServicesSection from '../components/VEServicesSection';
 import VEPortfolioGrid from '../components/VEPortfolioGrid';
+import VEContactSection from '../components/VEContactSection';
 import VEProjectModal from '../components/VEProjectModal';
 import VEFloatingSocials from '../components/VEFloatingSocials';
 
@@ -28,6 +29,7 @@ export default function VideoEditHome() {
       <VEMarquee />
       <VEServicesSection />
       <VEPortfolioGrid onSelect={setSelectedProject} />
+      <VEContactSection />
       <VEProjectModal project={selectedProject} onClose={() => setSelectedProject(null)} />
     </>
   );

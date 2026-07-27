@@ -33,7 +33,7 @@ export default function VEFooter() {
   ];
 
   return (
-    <footer id="contact" className="bg-white text-black py-16 px-4 sm:px-6 lg:px-8 border-t border-[#e8e8e8]">
+    <footer id="footer" className="bg-white text-black py-16 px-4 sm:px-6 lg:px-8 border-t border-[#e8e8e8]">
       <div className="mx-auto max-w-7xl flex flex-col min-h-[400px] justify-between">
 
         {/* Top Section */}
