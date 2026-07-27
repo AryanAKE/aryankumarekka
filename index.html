@@ -30,6 +30,24 @@
 
   <!-- Canonical -->
   <link rel="canonical" href="https://aryankumarekka.dev" />
+
+  <!-- GitHub Pages SPA: restore route from ?p= query param set by 404.html -->
+  <script>
+    (function () {
+      var redirect = sessionStorage.redirect;
+      delete sessionStorage.redirect;
+      if (redirect && redirect !== location.href) {
+        history.replaceState(null, null, redirect);
+        return;
+      }
+      // Also handle the ?p= param approach
+      var search = window.location.search;
+      if (search.indexOf('?p=') === 0) {
+        var path = decodeURIComponent(search.slice(3));
+        history.replaceState(null, null, path);
+      }
+    })();
+  </script>
 </head>
 
 <body>

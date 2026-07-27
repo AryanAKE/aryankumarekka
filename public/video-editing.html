@@ -2,9 +2,11 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="refresh" content="0; url=/video-editing" />
     <title>Redirecting…</title>
-    <script>window.location.replace('/video-editing');</script>
+    <script>
+      // Redirect to index with the path encoded as ?p= so BrowserRouter can restore it
+      window.location.replace('/?p=' + encodeURIComponent('/video-editing'));
+    </script>
   </head>
   <body></body>
 </html>
