@@ -51,13 +51,13 @@ export default function VEContactSection() {
             
             {/* Header Text */}
             <div className="space-y-6">
-              <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-neutral-400 block">
+              <span className="text-xs font-mono uppercase tracking-[0.2em] text-neutral-400 block">
                 / CONNECT
               </span>
-              <h2 className="text-4xl sm:text-5xl font-light tracking-tight text-neutral-900 leading-[1.1] font-sans">
+              <h2 className="text-5xl sm:text-6xl font-light tracking-tight text-neutral-900 leading-[1.1] font-sans">
                 Let&apos;s build a <span className="font-serif italic font-normal text-neutral-700">timeless</span> experience.
               </h2>
-              <p className="text-xs text-neutral-500 font-mono leading-relaxed max-w-sm">
+              <p className="text-sm text-neutral-500 font-mono leading-relaxed max-w-sm">
                 Collaborations are structured around selective creative goals. Use the interactive form to outline your project parameters.
               </p>
             </div>
@@ -65,19 +65,19 @@ export default function VEContactSection() {
             {/* Direct Channels */}
             <div className="space-y-8 pt-4 border-t border-neutral-100">
               <div>
-                <span className="block text-[9px] font-mono uppercase tracking-widest text-neutral-400 mb-2">
+                <span className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 mb-2">
                   Direct Enquiry
                 </span>
                 <a
                   href="mailto:aryankumarekka@gmail.com"
-                  className="text-sm font-medium text-neutral-800 hover:text-black transition-colors font-mono select-all underline underline-offset-4"
+                  className="text-base font-medium text-neutral-800 hover:text-black transition-colors font-mono select-all underline underline-offset-4"
                 >
                   aryankumarekka@gmail.com
                 </a>
               </div>
 
               <div>
-                <span className="block text-[9px] font-mono uppercase tracking-widest text-neutral-400 mb-2">
+                <span className="block text-[11px] font-mono uppercase tracking-widest text-neutral-400 mb-2">
                   Social Channels
                 </span>
                 <div className="space-y-3">
@@ -87,10 +87,10 @@ export default function VEContactSection() {
                       href={link.href}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-between text-xs text-neutral-500 hover:text-black transition-colors pb-1 border-b border-neutral-50 max-w-xs"
+                      className="flex items-center justify-between text-sm text-neutral-500 hover:text-black transition-colors pb-1 border-b border-neutral-50 max-w-xs"
                     >
                       <span className="font-medium">{link.label}</span>
-                      <span className="font-mono text-[10px] text-neutral-400">{link.value}</span>
+                      <span className="font-mono text-xs text-neutral-400">{link.value}</span>
                     </a>
                   ))}
                 </div>
@@ -99,8 +99,8 @@ export default function VEContactSection() {
 
             {/* Status dot */}
             <div className="flex items-center gap-3 pt-6 border-t border-neutral-100">
-              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span className="text-[9px] font-mono uppercase tracking-widest text-neutral-400">
+              <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-[11px] font-mono uppercase tracking-widest text-neutral-400">
                 Onboarding: active &amp; open
               </span>
             </div>
@@ -133,8 +133,8 @@ export default function VEContactSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
                   {/* Name Input */}
                   <div className="relative">
-                    <label className={`absolute left-0 text-[10px] uppercase font-mono tracking-widest transition-all duration-300 ${
-                      focused === 'name' || form.name ? '-top-4 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
+                    <label className={`absolute left-0 text-xs uppercase font-mono tracking-widest transition-all duration-300 ${
+                      focused === 'name' || form.name ? '-top-5 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
                     }`}>
                       01 / Your Name
                     </label>
@@ -145,14 +145,14 @@ export default function VEContactSection() {
                       onChange={handleChange}
                       onFocus={() => setFocused('name')}
                       onBlur={() => setFocused(null)}
-                      className="w-full bg-transparent text-base font-light text-neutral-800 outline-none pt-2 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors"
+                      className="w-full bg-transparent text-lg font-light text-neutral-800 outline-none pt-2 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors"
                     />
                   </div>
 
                   {/* Email Input */}
                   <div className="relative">
-                    <label className={`absolute left-0 text-[10px] uppercase font-mono tracking-widest transition-all duration-300 ${
-                      focused === 'email' || form.email ? '-top-4 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
+                    <label className={`absolute left-0 text-xs uppercase font-mono tracking-widest transition-all duration-300 ${
+                      focused === 'email' || form.email ? '-top-5 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
                     }`}>
                       02 / Your Email
                     </label>
@@ -164,14 +164,14 @@ export default function VEContactSection() {
                       onChange={handleChange}
                       onFocus={() => setFocused('email')}
                       onBlur={() => setFocused(null)}
-                      className="w-full bg-transparent text-base font-light text-neutral-800 outline-none pt-2 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors"
+                      className="w-full bg-transparent text-lg font-light text-neutral-800 outline-none pt-2 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* 02. Service Picker */}
                 <div className="space-y-4 pt-4">
-                  <span className="block text-[10px] uppercase font-mono tracking-widest text-neutral-400">
+                  <span className="block text-xs uppercase font-mono tracking-widest text-neutral-400">
                     03 / Select Creative Category
                   </span>
                   
@@ -183,7 +183,7 @@ export default function VEContactSection() {
                           key={service}
                           type="button"
                           onClick={() => selectService(service)}
-                          className={`px-4 py-2 text-[10px] font-mono tracking-wider transition-all duration-200 border ${
+                          className={`px-4 py-2.5 text-xs font-mono tracking-wider transition-all duration-200 border ${
                             isSelected 
                               ? 'bg-neutral-950 border-neutral-950 text-white shadow-sm'
                               : 'bg-white border-neutral-200 text-neutral-400 hover:border-neutral-400 hover:text-neutral-700'
@@ -198,8 +198,8 @@ export default function VEContactSection() {
 
                 {/* 03. Textarea Details */}
                 <div className="relative pt-4">
-                  <label className={`absolute left-0 text-[10px] uppercase font-mono tracking-widest transition-all duration-300 ${
-                    focused === 'message' || form.message ? '-top-4 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
+                  <label className={`absolute left-0 text-xs uppercase font-mono tracking-widest transition-all duration-300 ${
+                    focused === 'message' || form.message ? '-top-5 text-neutral-400 scale-90' : 'top-2 text-neutral-300 pointer-events-none'
                   }`}>
                     04 / Describe Project Objectives &amp; Style References
                   </label>
@@ -211,7 +211,7 @@ export default function VEContactSection() {
                     onFocus={() => setFocused('message')}
                     onBlur={() => setFocused(null)}
                     rows={4}
-                    className="w-full bg-transparent text-base font-light text-neutral-800 outline-none pt-4 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors resize-none"
+                    className="w-full bg-transparent text-lg font-light text-neutral-800 outline-none pt-4 pb-1 border-b border-neutral-100 focus:border-neutral-900 transition-colors resize-none"
                   />
                 </div>
 
@@ -219,7 +219,7 @@ export default function VEContactSection() {
                 <div className="pt-6">
                   <button
                     type="submit"
-                    className="group inline-flex items-center justify-between gap-8 bg-neutral-950 hover:bg-black text-white px-8 py-4.5 text-[10px] uppercase font-mono tracking-[0.2em] transition-all duration-300"
+                    className="group inline-flex items-center justify-between gap-8 bg-neutral-950 hover:bg-black text-white px-8 py-5 text-xs uppercase font-mono tracking-[0.2em] transition-all duration-300"
                   >
                     <span>Transmit brief</span>
                     <span className="transition-transform duration-300 group-hover:translate-x-1.5">
